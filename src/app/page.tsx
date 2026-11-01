@@ -1,19 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { 
   ArrowRight, 
-  TrendingUp, 
-  Building2, 
-  Target, 
-  Wallet, 
-  CreditCard, 
-  Home, 
-  PiggyBank, 
-  BookOpen, 
-  ShieldCheck, 
-  Sparkles,
-  Smartphone
+  Search,
+  Sparkles
 } from "lucide-react";
-import SearchBar from "@/components/ui/SearchBar";
 import ToolCard from "@/components/cards/ToolCard";
 import CategoryCard from "@/components/cards/CategoryCard";
 import ArticleCard from "@/components/cards/ArticleCard";
@@ -24,81 +15,84 @@ import { MOCK_ARTICLES } from "@/data/mockData";
 export default function HomePage() {
   const popularTools = TOOLS.slice(0, 6);
   const featuredArticles = MOCK_ARTICLES.slice(0, 3);
-  const latestArticles = MOCK_ARTICLES.slice(0, 4);
 
   return (
     <div className="space-y-16 pb-20">
-      {/* ──────────────── 1. HERO SECTION ──────────────── */}
-      <section className="bg-gradient-to-b from-[#13284c] to-[#0e1e38] text-white py-16 md:py-24 relative overflow-hidden">
-        {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="container-main relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="inline-block text-xs font-bold tracking-widest uppercase text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1 rounded-full">
-                FINANCE TOOLS &amp; INSIGHTS
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+      {/* ──────────────── 1. HERO SECTION (EXACT DESIGN MATCH) ──────────────── */}
+      <section className="relative bg-gradient-to-r from-white via-slate-50/70 to-blue-50/40 border-b border-gray-100 py-12 lg:py-16 overflow-hidden">
+        <div className="container-main">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content (7 cols) */}
+            <div className="lg:col-span-6 xl:col-span-6 space-y-4">
+              <p className="text-[11px] font-bold tracking-widest uppercase text-[#1D3A6E]">
+                FINANCE TOOLS
+              </p>
+              
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1D3A6E] tracking-tight leading-[1.18] font-serif">
                 Put your numbers into perspective.
               </h1>
-              <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
-                Use simple calculators and planning tools to understand your finances, explore your options, and make confident decisions.
+              
+              <p className="text-sm sm:text-base text-gray-600 max-w-xl leading-relaxed">
+                Use simple calculators and planning tools to understand your finances, explore your options and make confident decisions.
               </p>
 
-              {/* SearchBar */}
+              {/* Search Bar matching image */}
               <div className="pt-2">
-                <SearchBar popularTags={POPULAR_TOOL_TAGS} />
+                <form 
+                  action="/search" 
+                  method="GET"
+                  className="relative flex items-center bg-white border border-gray-200/90 rounded-full shadow-xs hover:border-gray-300 focus-within:border-[#1D3A6E] focus-within:ring-2 focus-within:ring-blue-100 transition-all max-w-xl"
+                >
+                  <Search className="w-4 h-4 text-gray-400 absolute left-4 pointer-events-none" />
+                  <input
+                    type="text"
+                    name="q"
+                    placeholder="Search for a tool (e.g., loan calculator, budget planner...)"
+                    className="w-full pl-11 pr-24 py-3 text-xs sm:text-sm text-gray-800 placeholder-gray-400 bg-transparent rounded-full focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1.5 px-4 py-1.5 bg-[#1D3A6E] hover:bg-[#152a50] text-white text-xs font-semibold rounded-full transition-colors"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
+
+              {/* Popular tools inline links */}
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500 pt-1">
+                <span className="font-semibold text-gray-700">Popular tools:</span>
+                <Link href="/tools/compound-interest-calculator" className="hover:text-[#1D3A6E] hover:underline">
+                  Compound Interest
+                </Link>
+                <span>·</span>
+                <Link href="/tools/loan-payment-calculator" className="hover:text-[#1D3A6E] hover:underline">
+                  Loan Calculator
+                </Link>
+                <span>·</span>
+                <Link href="/tools/savings-goal-calculator" className="hover:text-[#1D3A6E] hover:underline">
+                  Savings Goal
+                </Link>
+                <span>·</span>
+                <Link href="/tools/budget-planner" className="hover:text-[#1D3A6E] hover:underline">
+                  Budget Planner
+                </Link>
               </div>
             </div>
 
-            {/* Right Card Mockup (Laptop with Chart Simulation) */}
-            <div className="lg:col-span-5">
-              <div className="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md relative group hover:border-slate-600 transition-all">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-400">
-                    Growth Projection 2026
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-xs text-slate-400">Your Future Value</span>
-                    <div className="flex items-baseline gap-3 mt-1">
-                      <p className="text-3xl font-black text-white">$52,837</p>
-                      <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2 py-0.5 rounded-md">
-                        +8.2%
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Simulated Chart Bars */}
-                  <div className="h-28 flex items-end gap-2 pt-4">
-                    {[35, 45, 55, 60, 75, 82, 95, 110, 130, 145].map((val, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-gradient-to-t from-blue-600 to-emerald-400 rounded-t-sm hover:brightness-125 transition-all"
-                        style={{ height: `${(val / 145) * 100}%` }}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-800 text-xs">
-                    <div>
-                      <span className="text-slate-400">Total Contributions</span>
-                      <p className="font-bold text-white mt-0.5">$24,000</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-400">Total Growth</span>
-                      <p className="font-bold text-emerald-400 mt-0.5">+$28,837</p>
-                    </div>
-                  </div>
-                </div>
+            {/* Right Image (Laptop on Desk with Visual Chart) */}
+            <div className="lg:col-span-6 xl:col-span-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200/80 group">
+                <Image
+                  src="/hero-laptop.jpg"
+                  alt="Financial growth chart on laptop screen with coffee mug and plant"
+                  width={640}
+                  height={320}
+                  priority
+                  className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                {/* Subtle soft gradient fade on bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
@@ -111,7 +105,7 @@ export default function HomePage() {
           <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
             Tool Categories
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D3A6E] mt-1">
             Find the right tool for your goal.
           </h2>
           <p className="text-sm text-gray-500 mt-1">
@@ -140,7 +134,7 @@ export default function HomePage() {
             <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
               Featured Tools
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D3A6E] mt-1">
               Popular finance tools
             </h2>
             <p className="text-sm text-gray-500 mt-1">
@@ -169,7 +163,7 @@ export default function HomePage() {
           <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
             Featured Tool
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D3A6E] mt-1">
             Compound Interest Calculator
           </h2>
           <p className="text-sm text-gray-500 mt-1">
@@ -187,7 +181,7 @@ export default function HomePage() {
             <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
               Worth Understanding
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D3A6E] mt-1">
               Editor&apos;s Picks
             </h2>
             <p className="text-sm text-gray-500 mt-1">
@@ -216,7 +210,7 @@ export default function HomePage() {
           <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
             Explore Topics
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D3A6E] mt-1">
             Explore what matters to your money.
           </h2>
           <p className="text-sm text-gray-500 mt-1">
@@ -255,7 +249,7 @@ export default function HomePage() {
           <div className="flex-shrink-0">
             <Link
               href="/learn"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-navy hover:bg-blue-900 text-white font-bold text-sm rounded-xl shadow-md transition-all active:scale-95"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#1D3A6E] hover:bg-[#152a50] text-white font-bold text-sm rounded-xl shadow-md transition-all active:scale-95"
             >
               <span>Browse our guides</span>
               <ArrowRight className="w-4 h-4" />
