@@ -1,72 +1,151 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand Colors ── */
-  --color-brand-navy:    #1D3A6E;
-  --color-brand-green:   #22C55E;
-  --color-brand-light:   #E8F0FE;
+  /* ── 4.1 Exact Color Palette ── */
+  --color-primary-blue: #1D3A6E;
+  --color-accent-green: #22C55E;
+  --color-accent-green-alt: #2ECC71;
+  --color-light-blue: #E8F0FE;
+  --color-accent-orange: #F59E0B;
+  --color-accent-purple: #7C3AED;
+  --color-text-dark: #111827;
+  --color-text-muted: #6B7280;
+  --color-site-bg: #FFFFFF;
+  --color-site-border: #E5E7EB;
 
-  /* ── Font ── */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Aliases for convenience */
+  --color-brand-navy: var(--color-primary-blue);
+  --color-brand-green: var(--color-accent-green);
+  --color-brand-light: var(--color-light-blue);
 
-  /* ── Custom spacing / radius ── */
+  /* ── 4.2 Typography ── */
+  --font-sans: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --radius-card: 0.75rem;
 }
 
-/* ── Base Styles ── */
+/* ── Base Typography Scale ── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    color: var(--color-text-dark);
+    background-color: var(--color-site-bg);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text-dark);
+    font-size: 1rem; /* 16px */
+    line-height: 1.5;
+    font-weight: 400;
   }
 
-  h1 { @apply text-4xl md:text-5xl; }
-  h2 { @apply text-3xl; }
-  h3 { @apply text-xl; }
-
-  a {
-    @apply transition-colors duration-200;
+  /* H1: Hero (40–56px, Weight 800) */
+  h1 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-text-dark);
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem; /* 56px */
+    }
   }
 
-  input, select, textarea {
-    @apply outline-none focus:ring-2 focus:ring-brand-green/40;
+  /* H2: Section (28–36px, Weight 700) */
+  h2 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--color-text-dark);
+  }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
+
+  /* H3: Card title (18–22px, Weight 600) */
+  h3 {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text-dark);
+  }
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.375rem; /* 22px */
+    }
+  }
+
+  /* Caption / Meta (13–14px, Weight 400) */
+  small, .caption-meta {
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 640px) {
+    small, .caption-meta {
+      font-size: 0.875rem; /* 14px */
+    }
+  }
+
+  /* Button (14–16px, Weight 600) */
+  button, .btn {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+  }
+  @media (min-width: 640px) {
+    button, .btn {
+      font-size: 1rem; /* 16px */
+    }
   }
 }
 
-/* ── Utility ── */
+/* ── Custom Utilities ── */
 @layer utilities {
-  .text-brand-navy  { color: var(--color-brand-navy); }
-  .bg-brand-navy    { background-color: var(--color-brand-navy); }
-  .text-brand-green { color: var(--color-brand-green); }
-  .bg-brand-green   { background-color: var(--color-brand-green); }
-  .bg-brand-light   { background-color: var(--color-brand-light); }
+  .bg-primary-blue { background-color: var(--color-primary-blue); }
+  .text-primary-blue { color: var(--color-primary-blue); }
+  .border-primary-blue { border-color: var(--color-primary-blue); }
 
-  /* Section padding */
-  .section-pad { @apply py-16 md:py-20; }
+  .bg-accent-green { background-color: var(--color-accent-green); }
+  .text-accent-green { color: var(--color-accent-green); }
 
-  /* Container */
+  .bg-light-blue { background-color: var(--color-light-blue); }
+  .text-dark { color: var(--color-text-dark); }
+  .text-muted { color: var(--color-text-muted); }
+
   .container-main {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 80rem; /* 1280px */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-main {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-main {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
-  /* Card base */
   .card {
-    @apply bg-white rounded-[var(--radius-card)] border border-gray-200 p-6 
-           hover:shadow-md transition-shadow duration-200;
+    background-color: var(--color-site-bg);
+    border: 1px solid var(--color-site-border);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
-
-  /* Category badge */
-  .badge {
-    @apply inline-block text-xs font-semibold uppercase tracking-wider 
-           px-2.5 py-1 rounded-full;
-  }
-
-  /* CTA link arrow */
-  .link-arrow {
-    @apply inline-flex items-center gap-1 text-sm font-semibold text-blue-600 
-           hover:text-blue-800 transition-colors;
+  .card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    border-color: #CBD5E1;
   }
 }
