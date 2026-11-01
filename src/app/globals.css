@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand Colors ── */
+  --color-brand-navy:    #1D3A6E;
+  --color-brand-green:   #22C55E;
+  --color-brand-light:   #E8F0FE;
+
+  /* ── Font ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Custom spacing / radius ── */
+  --radius-card: 0.75rem;
+}
+
+/* ── Base Styles ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl; }
+  h3 { @apply text-xl; }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  input, select, textarea {
+    @apply outline-none focus:ring-2 focus:ring-brand-green/40;
+  }
+}
+
+/* ── Utility ── */
+@layer utilities {
+  .text-brand-navy  { color: var(--color-brand-navy); }
+  .bg-brand-navy    { background-color: var(--color-brand-navy); }
+  .text-brand-green { color: var(--color-brand-green); }
+  .bg-brand-green   { background-color: var(--color-brand-green); }
+  .bg-brand-light   { background-color: var(--color-brand-light); }
+
+  /* Section padding */
+  .section-pad { @apply py-16 md:py-20; }
+
+  /* Container */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-[var(--radius-card)] border border-gray-200 p-6 
+           hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Category badge */
+  .badge {
+    @apply inline-block text-xs font-semibold uppercase tracking-wider 
+           px-2.5 py-1 rounded-full;
+  }
+
+  /* CTA link arrow */
+  .link-arrow {
+    @apply inline-flex items-center gap-1 text-sm font-semibold text-blue-600 
+           hover:text-blue-800 transition-colors;
+  }
+}
