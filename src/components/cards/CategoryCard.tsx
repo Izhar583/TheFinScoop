@@ -32,28 +32,30 @@ export default function CategoryCard({
 }: CategoryCardProps) {
   const IconComponent = iconMap[icon] || TrendingUp;
   const href = type === "tool" ? `/tools?category=${slug}` : `/learn/${slug}`;
-  const actionText = type === "tool" ? "View tools" : "Explore";
+  const actionText = type === "tool" ? "View tools" : "Explore guide";
 
   return (
     <Link
       href={href}
-      className="group bg-white rounded-xl border border-gray-100 p-6 shadow-xs hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between"
+      className="group relative bg-white rounded-3xl border border-slate-200/90 p-8 hover:border-slate-900 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
     >
       <div>
-        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-brand-navy mb-4 group-hover:scale-105 group-hover:bg-brand-navy group-hover:text-white transition-all">
-          <IconComponent className="w-6 h-6" />
+        <div className="w-14 h-14 rounded-2xl bg-slate-100 text-slate-900 flex items-center justify-center mb-6 group-hover:bg-slate-950 group-hover:text-white transition-all duration-300">
+          <IconComponent className="w-7 h-7" />
         </div>
-        <h3 className="text-base font-bold text-gray-900 group-hover:text-brand-navy transition-colors">
+        <h3 className="text-xl font-bold text-slate-900 tracking-tight transition-colors">
           {name}
         </h3>
-        <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+        <p className="text-base text-slate-600 mt-3 leading-relaxed">
           {description}
         </p>
       </div>
 
-      <div className="mt-5 pt-3 flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:text-blue-800 transition-colors">
+      <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-900">
         <span>{actionText}</span>
-        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+        <span className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-slate-950 group-hover:text-white transition-all duration-200">
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </span>
       </div>
     </Link>
   );

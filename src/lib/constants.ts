@@ -299,3 +299,11 @@ export const POPULAR_FINTECH_TAGS = [
   "Financial apps",
 ];
 
+export const POPULAR_ARTICLE_TAGS = [
+  "Emergency Fund",
+  "Compound Interest",
+  "Budgeting 101",
+  "Index Funds",
+  "Roth IRA",
+];
+

@@ -1,105 +1,161 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import SearchBar from "@/components/ui/SearchBar";
+import ArticleCard from "@/components/cards/ArticleCard";
+import ToolCard from "@/components/cards/ToolCard";
+import CategoryCard from "@/components/cards/CategoryCard";
+import NewsletterStrip from "@/components/sections/NewsletterStrip";
+import { LEARN_CATEGORIES, TOOLS, POPULAR_ARTICLE_TAGS } from "@/lib/constants";
+import { MOCK_ARTICLES } from "@/data/mockData";
+import { ArrowRight, Sparkles, BookOpen, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Finance Topics, Tools & Guides",
+  title: "Personal Finance & Guides — TheFinScoop",
   description:
     "Make smarter money decisions. Practical financial knowledge, useful tools, and clear fintech guides — all in one place.",
 };
 
 export default function LearnPage() {
+  const featuredArticles = MOCK_ARTICLES.slice(0, 3);
+  const latestArticles = MOCK_ARTICLES.slice(3, 7);
+  const popularTools = TOOLS.slice(0, 3);
+
   return (
-    <div>
-      {/* Hero */}
-      <section className="bg-brand-navy text-white section-pad">
-        <div className="container-main grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-white mb-4">Make smarter money decisions.</h1>
-            <p className="text-gray-300 text-lg mb-6">
-              Practical financial knowledge, useful tools, and clear fintech
-              guides — all in one place.
-            </p>
-            {/* SearchBar goes here */}
-            <div className="flex gap-4 mt-6">
-              {/* Finance Tools quick card */}
-              {/* Explore Topics quick card */}
-            </div>
+    <div className="space-y-24 pb-28">
+      {/* ──────────────── 1. HERO ──────────────── */}
+      <section className="bg-white border-b border-slate-100 pt-12 pb-16 lg:pt-20 lg:pb-24">
+        <div className="container-main max-w-4xl text-center mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold tracking-wider text-slate-800 uppercase mx-auto">
+            <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+            Financial Education &amp; Guides
           </div>
-          <div className="hidden md:block">{/* Hero image */}</div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            Make smarter decisions with your money.
+          </h1>
+
+          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Practical financial knowledge, step-by-step frameworks, and unbiased analysis to help you build lasting wealth.
+          </p>
+
+          <div className="pt-4 max-w-xl mx-auto">
+            <SearchBar
+              placeholder="Search guides, investing, retirement, taxes..."
+              popularTags={POPULAR_ARTICLE_TAGS}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Main Content + Sidebar */}
-      <div className="container-main py-16">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-12">
-          {/* Main Content */}
-          <main>
-            {/* Worth Understanding — Featured articles */}
-            <section className="mb-16">
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
-                Editor&apos;s Picks
-              </p>
-              <h2 className="mb-6">Worth understanding.</h2>
-              {/* ArticleGrid (featured) goes here */}
-            </section>
-
-            {/* Popular Finance Tools */}
-            <section className="mb-16">
-              <h2 className="mb-2">Popular finance tools</h2>
-              <p className="text-gray-500 mb-6">
-                Simple calculators to explore savings, borrowing and everyday
-                financial decisions.
-              </p>
-              {/* ToolRow (horizontal) goes here */}
-            </section>
-
-            {/* Explore Topics */}
-            <section className="mb-16">
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
-                What matters to you
-              </p>
-              <h2 className="mb-2">Explore what matters to your money.</h2>
-              <p className="text-gray-500 mb-6">
-                Focused, helpful resources and expert insight to pay attention
-                to.
-              </p>
-              {/* CategoryGrid (6 topics) goes here */}
-            </section>
-
-            {/* Fintech Explained */}
-            <section className="mb-16">
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
-                The latest digital products you should know about
-              </p>
-              <h2 className="mb-6">Fintech explained.</h2>
-              {/* FintechGuideCards (3) goes here */}
-            </section>
-
-            {/* Latest Articles */}
-            <section className="mb-16">
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">
-                Fresh insights. Practical answers.
-              </p>
-              <h2 className="mb-2">Fresh insights. Practical answers.</h2>
-              <p className="text-gray-500 mb-6">
-                New explainers, tips and information this week — updated
-                regularly.
-              </p>
-              {/* ArticleGrid (4 latest) goes here */}
-            </section>
-
-            {/* Newsletter */}
-            {/* NewsletterStrip goes here */}
-          </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block">
-            {/* LatestArticlesSidebar */}
-            {/* PopularCategories */}
-            {/* NewsletterSidebarWidget */}
-          </aside>
+      {/* ──────────────── 2. WORTH UNDERSTANDING (FEATURED) ──────────────── */}
+      <section className="container-main">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Editor&apos;s Picks
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+              Worth understanding
+            </h2>
+            <p className="text-lg text-slate-600 mt-2">
+              Essential deep-dives handpicked by our editorial team.
+            </p>
+          </div>
         </div>
-      </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredArticles.map((article) => (
+            <ArticleCard key={article.slug} article={article} />
+          ))}
+        </div>
+      </section>
+
+      {/* ──────────────── 3. TOPIC CATEGORIES ──────────────── */}
+      <section className="container-main">
+        <div className="mb-12 max-w-2xl">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Core Curricula
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            Explore what matters to your money
+          </h2>
+          <p className="text-lg text-slate-600 mt-2">
+            Structured resources and actionable strategies across every domain of personal finance.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {LEARN_CATEGORIES.map((cat) => (
+            <CategoryCard
+              key={cat.slug}
+              slug={cat.slug}
+              name={cat.name}
+              description={cat.description}
+              icon={cat.icon}
+              type="learn"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* ──────────────── 4. POPULAR TOOLS BAND ──────────────── */}
+      <section className="container-main">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Interactive Planners
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+              Companion tools &amp; calculators
+            </h2>
+            <p className="text-lg text-slate-600 mt-2">
+              Put the concepts into practice with our free interactive calculators.
+            </p>
+          </div>
+          <Link
+            href="/tools"
+            className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+          >
+            <span>View all 6 calculators</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {popularTools.map((tool) => (
+            <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* ──────────────── 5. LATEST ARTICLES ──────────────── */}
+      <section className="container-main">
+        <div className="mb-12 max-w-2xl">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Fresh Insights
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            Latest analysis &amp; guides
+          </h2>
+          <p className="text-lg text-slate-600 mt-2">
+            Updated weekly with data-backed breakdowns of financial news and trends.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {latestArticles.map((article) => (
+            <ArticleCard key={article.slug} article={article} />
+          ))}
+        </div>
+      </section>
+
+      {/* ──────────────── 6. NEWSLETTER ──────────────── */}
+      <section className="container-main">
+        <NewsletterStrip
+          title="The weekly scoop on smart money."
+          subtitle="Join 250,000+ readers. Concise analysis, calculator updates, and zero spam."
+        />
+      </section>
     </div>
   );
 }
-

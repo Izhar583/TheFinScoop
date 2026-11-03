@@ -15,18 +15,29 @@ import {
   CreditCard, 
   Home,
   Sparkles,
-  Sprout
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+  ArrowUpRight
 } from "lucide-react";
 import { calculateCompoundInterest } from "@/lib/calculators";
 import { formatCurrency, formatPercentage } from "@/lib/utils";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 export default function HomePage() {
-  // Calculator state matching exact mockup
   const [initialInvestment, setInitialInvestment] = useState<number>(1000);
   const [regularContribution, setRegularContribution] = useState<number>(200);
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(7);
   const [investmentPeriod, setInvestmentPeriod] = useState<number>(20);
   const [activeTab, setActiveTab] = useState<"basic" | "advanced">("basic");
+  const [compoundFrequency, setCompoundFrequency] = useState<"daily" | "monthly" | "quarterly" | "yearly">("monthly");
 
   const result = calculateCompoundInterest({
     initialInvestment,
@@ -34,517 +45,629 @@ export default function HomePage() {
     contributionFrequency: "monthly",
     annualInterestRate,
     investmentPeriod,
-    compoundFrequency: "monthly",
+    compoundFrequency,
   });
 
   return (
-    <div className="space-y-16 pb-20 bg-white">
-      {/* ──────────────── 1. HERO SECTION (EXACT DESIGN MATCH) ──────────────── */}
-      <section className="relative bg-[#fafbfd] border-b border-gray-100 py-10 lg:py-14 overflow-hidden">
+    <div className="space-y-24 sm:space-y-32 pb-24 bg-white selection:bg-slate-900 selection:text-white">
+      {/* ──────────────── 1. HERO SECTION (CLEAN & PROFESSIONAL) ──────────────── */}
+      <section className="relative pt-12 sm:pt-20 pb-16 lg:pb-24 bg-gradient-to-b from-slate-50/70 via-white to-white overflow-hidden border-b border-slate-100">
         <div className="container-main">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* Left Column (Content & Search) */}
-            <div className="lg:col-span-6 space-y-4">
-              <p className="text-[11px] font-bold tracking-widest uppercase text-[#1D3A6E]">
-                FINANCE TOOLS
-              </p>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#1D3A6E] tracking-tight leading-[1.18] font-serif">
-                Put your numbers into perspective.
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column (High-impact typography & Search) */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Financial Tools &amp; Intelligence</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.08]">
+                Put your numbers into clear perspective.
               </h1>
-              
-              <p className="text-xs sm:text-sm text-gray-600 max-w-lg leading-relaxed">
-                Use simple calculators and planning tools to understand your finances, explore your options and make confident decisions.
+
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+                Use intelligent calculators and transparent planning tools to understand your personal finances, model future growth, and make confident wealth decisions.
               </p>
 
-              {/* Search Bar pill */}
-              <div className="pt-2">
+              {/* Modern Search Pill */}
+              <div className="pt-2 max-w-xl">
                 <form 
                   action="/search" 
                   method="GET"
-                  className="relative flex items-center bg-white border border-gray-200 rounded-full shadow-xs hover:border-gray-300 focus-within:border-[#1D3A6E] transition-all max-w-lg"
+                  className="relative flex items-center bg-white border border-slate-200 rounded-full shadow-sm hover:border-slate-300 focus-within:border-slate-950 focus-within:ring-4 focus-within:ring-slate-100 transition-all p-1.5"
                 >
-                  <Search className="w-4 h-4 text-gray-400 absolute left-4 pointer-events-none" />
+                  <Search className="w-5 h-5 text-slate-400 ml-4 pointer-events-none" />
                   <input
                     type="text"
                     name="q"
-                    placeholder="Search for a tool (e.g., loan calculator, budget planner...)"
-                    className="w-full pl-11 pr-4 py-3 text-xs text-gray-800 placeholder-gray-400 bg-transparent rounded-full focus:outline-none"
+                    placeholder="Search for a calculator (e.g. loan, mortgage, savings)..."
+                    className="w-full pl-3 pr-28 py-3 text-sm sm:text-base text-slate-900 placeholder-slate-400 bg-transparent focus:outline-none"
                   />
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-slate-950 hover:bg-slate-800 text-white text-sm font-semibold rounded-full shadow-sm transition-all active:scale-95 whitespace-nowrap"
+                  >
+                    Search
+                  </button>
                 </form>
               </div>
 
-              {/* Popular tools line */}
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500 pt-1">
-                <span className="font-semibold text-gray-700">Popular tools:</span>
-                <Link href="/tools/compound-interest-calculator" className="hover:text-[#1D3A6E] hover:underline">
-                  Compound Interest
-                </Link>
-                <span>·</span>
-                <Link href="/tools/loan-payment-calculator" className="hover:text-[#1D3A6E] hover:underline">
-                  Loan Calculator
-                </Link>
-                <span>·</span>
-                <Link href="/tools/savings-goal-calculator" className="hover:text-[#1D3A6E] hover:underline">
-                  Savings Goal
-                </Link>
-                <span>·</span>
-                <Link href="/tools/budget-planner" className="hover:text-[#1D3A6E] hover:underline">
-                  Budget Planner
-                </Link>
+              {/* Popular Tools Pills */}
+              <div className="flex flex-wrap items-center gap-2 pt-2 text-sm text-slate-500">
+                <span className="font-medium text-slate-700">Popular:</span>
+                {[
+                  { label: "Compound Interest", href: "/tools/compound-interest-calculator" },
+                  { label: "Loan Calculator", href: "/tools/loan-payment-calculator" },
+                  { label: "Savings Goal", href: "/tools/savings-goal-calculator" },
+                  { label: "Mortgage", href: "/tools/mortgage-calculator" },
+                ].map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 text-xs font-semibold transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </div>
 
-            {/* Right Column (Laptop Mockup Image) */}
-            <div className="lg:col-span-6 flex justify-end">
-              <div className="relative w-full max-w-xl rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            {/* Right Column (Hero Visual Mockup with Floating Stats) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
                 <Image
                   src="/tools-laptop.jpg"
-                  alt="Financial growth chart on laptop screen with coffee mug and plant"
+                  alt="Financial analytics dashboard on laptop screen"
                   width={640}
-                  height={300}
+                  height={340}
                   priority
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Floating Glassmorphic Pill */}
+              <div className="absolute -bottom-6 -left-6 sm:bottom-4 sm:left-4 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 shadow-xl flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                  +38%
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-900">Projected Portfolio Growth</p>
+                  <p className="text-[11px] text-slate-500">Compound interest in action</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────────────── 2. TOOL CATEGORIES ──────────────── */}
+      {/* ──────────────── 2. METRICS & TRUST STATS (CERAHI DENTISTRY STYLE) ──────────────── */}
+      <section className="bg-[#0B1528] text-white py-16 sm:py-20">
+        <div className="container-main">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 divide-y sm:divide-y-0 sm:divide-x divide-slate-800">
+            <div className="space-y-2 pt-4 sm:pt-0">
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">6+</p>
+              <p className="text-base font-bold text-slate-200">Free Calculators</p>
+              <p className="text-sm text-slate-400">Zero signup, zero paywalls</p>
+            </div>
+            <div className="space-y-2 pt-4 sm:pt-0 sm:pl-8">
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">250K+</p>
+              <p className="text-base font-bold text-slate-200">Active Readers</p>
+              <p className="text-sm text-slate-400">Trust our weekly insights</p>
+            </div>
+            <div className="space-y-2 pt-4 sm:pt-0 sm:pl-8">
+              <p className="text-4xl sm:text-5xl font-black text-emerald-400 tracking-tight">100%</p>
+              <p className="text-base font-bold text-slate-200">Editorial Independence</p>
+              <p className="text-sm text-slate-400">No sponsored algorithm bias</p>
+            </div>
+            <div className="space-y-2 pt-4 sm:pt-0 sm:pl-8">
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">$50M+</p>
+              <p className="text-base font-bold text-slate-200">Savings Modeled</p>
+              <p className="text-sm text-slate-400">Calculated by our community</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────── 3. TOOL CATEGORIES ──────────────── */}
       <section className="container-main">
-        <div className="mb-6">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-            TOOL CATEGORIES
-          </p>
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-0.5">
-            Find the right tool for your goal.
+        <div className="max-w-2xl mb-12 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Tool Categories
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+            Find the right tool for your financial goal.
           </h2>
-          <p className="text-xs text-gray-500 mt-1">
-            Explore our collection of free calculators and planning tools, organized by your financial needs.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Explore our curated suite of mathematical planners, organized around everyday money needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* 1. Savings & Growth */}
-          <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-xs hover:border-gray-200 hover:shadow-sm transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#16A34A] flex items-center justify-center text-white shadow-2xs">
-                <PiggyBank className="w-5 h-5" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Card 1 */}
+          <Link
+            href="/tools?category=savings-growth"
+            className="group card-premium flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-sm">
+                <PiggyBank className="w-7 h-7" />
               </div>
-              <h3 className="text-sm font-bold text-gray-900">Savings &amp; Growth</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Plan for the future with savings and investment tools.
+              <h3 className="text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+                Savings &amp; Growth
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Model compound interest, set high-yield savings targets, and project future wealth.
               </p>
             </div>
-            <div className="mt-5 pt-3">
-              <Link href="/tools?category=savings-growth" className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                <span>View tools</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+              <span>View calculators</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </Link>
 
-          {/* 2. Loans & Borrowing */}
-          <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-xs hover:border-gray-200 hover:shadow-sm transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#1D3A6E] flex items-center justify-center text-white shadow-2xs">
-                <Building2 className="w-5 h-5" />
+          {/* Card 2 */}
+          <Link
+            href="/tools?category=loans-borrowing"
+            className="group card-premium flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-sm">
+                <Building2 className="w-7 h-7" />
               </div>
-              <h3 className="text-sm font-bold text-gray-900">Loans &amp; Borrowing</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Calculate payments, compare options and understand costs.
+              <h3 className="text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+                Loans &amp; Mortgages
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Calculate amortized monthly payments, compare loan APRs, and minimize total interest.
               </p>
             </div>
-            <div className="mt-5 pt-3">
-              <Link href="/tools?category=loans-borrowing" className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                <span>View tools</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+              <span>View calculators</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </Link>
 
-          {/* 3. Budgeting & Debt */}
-          <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-xs hover:border-gray-200 hover:shadow-sm transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center text-white shadow-2xs">
-                <Wallet className="w-5 h-5" />
+          {/* Card 3 */}
+          <Link
+            href="/tools?category=budgeting-debt"
+            className="group card-premium flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-sm">
+                <Wallet className="w-7 h-7" />
               </div>
-              <h3 className="text-sm font-bold text-gray-900">Budgeting &amp; Debt</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Take control of your spending and pay down debt faster.
+              <h3 className="text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+                Budgeting &amp; Debt
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Take control of variable expenses, map debt avalanche payoff, and find monthly cash surplus.
               </p>
             </div>
-            <div className="mt-5 pt-3">
-              <Link href="/tools?category=budgeting-debt" className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                <span>View tools</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+              <span>View calculators</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </Link>
 
-          {/* 4. Investing & Retirement */}
-          <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-xs hover:border-gray-200 hover:shadow-sm transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#7C3AED] flex items-center justify-center text-white shadow-2xs">
-                <BarChart3 className="w-5 h-5" />
+          {/* Card 4 */}
+          <Link
+            href="/tools?category=investing-retirement"
+            className="group card-premium flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-sm">
+                <BarChart3 className="w-7 h-7" />
               </div>
-              <h3 className="text-sm font-bold text-gray-900">Investing &amp; Retirement</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Estimate growth, explore scenarios and plan for tomorrow.
+              <h3 className="text-xl font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+                Investing &amp; Wealth
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Forecast index fund returns, retirement horizons, and market compounding power.
               </p>
             </div>
-            <div className="mt-5 pt-3">
-              <Link href="/tools?category=investing-retirement" className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1">
-                <span>View tools</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+            <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+              <span>View calculators</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
-      {/* ──────────────── 3. POPULAR FINANCE TOOLS ──────────────── */}
+      {/* ──────────────── 4. POPULAR FINANCE TOOLS (CLEAN REFINED GRID) ──────────────── */}
       <section className="container-main">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-              FEATURED TOOLS
-            </p>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-0.5">
-              Popular finance tools
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div className="space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Featured Tools
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+              Popular finance calculators
             </h2>
-            <p className="text-xs text-gray-500 mt-1">
-              Start with our most used calculators and planners.
+            <p className="text-base text-slate-600">
+              Start with our most-used calculators for everyday financial planning.
             </p>
           </div>
           <Link
             href="/tools"
-            className="text-xs font-semibold text-blue-600 hover:underline inline-flex items-center gap-1"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-950 hover:text-blue-600 transition-colors"
           >
-            <span>View all tools</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Explore all tools</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {/* 1. Compound Interest Calculator */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <TrendingUp className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Compound Interest Calculator</h3>
-              <p className="text-xs text-gray-500">See how your savings can grow over time.</p>
-              <Link href="/tools/compound-interest-calculator" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 2. Loan Payment Calculator */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-[#1D3A6E] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Building2 className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Loan Payment Calculator</h3>
-              <p className="text-xs text-gray-500">Estimate monthly payments and total interest.</p>
-              <Link href="/tools/loan-payment-calculator" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 3. Savings Goal Calculator */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-[#0D9488] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Target className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Savings Goal Calculator</h3>
-              <p className="text-xs text-gray-500">Find out how much you need to save each month.</p>
-              <Link href="/tools/savings-goal-calculator" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 4. Budget Planner */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-[#9333EA] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Wallet className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Budget Planner</h3>
-              <p className="text-xs text-gray-500">Track income, expenses and build a healthier budget.</p>
-              <Link href="/tools/budget-planner" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 5. Debt Payoff Calculator */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-[#EA580C] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <CreditCard className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Debt Payoff Calculator</h3>
-              <p className="text-xs text-gray-500">Create a plan to become debt-free faster.</p>
-              <Link href="/tools/loan-payment-calculator" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 6. Mortgage Calculator */}
-          <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-xs hover:shadow-sm transition-all flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-lg bg-[#0284C7] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Home className="w-4 h-4" />
-            </div>
-            <div className="space-y-1 flex-1">
-              <h3 className="text-sm font-bold text-gray-900">Mortgage Calculator</h3>
-              <p className="text-xs text-gray-500">Estimate monthly payments and compare loan options.</p>
-              <Link href="/tools/mortgage-calculator" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline pt-2">
-                <span>Use tool</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              slug: "compound-interest-calculator",
+              name: "Compound Interest Calculator",
+              desc: "Simulate how your principal and recurring deposits multiply over decades.",
+              icon: TrendingUp,
+            },
+            {
+              slug: "loan-payment-calculator",
+              name: "Loan Payment Calculator",
+              desc: "Determine fixed monthly installments, total financing charges, and APR impact.",
+              icon: Building2,
+            },
+            {
+              slug: "savings-goal-calculator",
+              name: "Savings Goal Calculator",
+              desc: "Calculate exact monthly contributions needed to reach your target on schedule.",
+              icon: Target,
+            },
+            {
+              slug: "budget-planner",
+              name: "Budget Planner",
+              desc: "Audit monthly income against fixed & variable spending to discover real savings.",
+              icon: Wallet,
+            },
+            {
+              slug: "debt-payoff-calculator",
+              name: "Debt Payoff Calculator",
+              desc: "Formulate an accelerated debt-free schedule using the avalanche or snowball strategy.",
+              icon: CreditCard,
+            },
+            {
+              slug: "mortgage-calculator",
+              name: "Mortgage Calculator",
+              desc: "Estimate total monthly home financing including principal, interest, tax & insurance.",
+              icon: Home,
+            },
+          ].map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <div
+                key={tool.slug}
+                className="card-premium flex flex-col justify-between group"
+              >
+                <div className="space-y-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-slate-950 group-hover:text-white transition-colors">
+                    <Icon className="w-6 h-6 stroke-[1.75]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">
+                    {tool.name}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {tool.desc}
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-slate-100">
+                  <Link
+                    href={`/tools/${tool.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-950 group-hover:text-blue-600 transition-colors"
+                  >
+                    <span>Use tool</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* ──────────────── 4. FEATURED CALCULATOR (EXACT MATCH) ──────────────── */}
+      {/* ──────────────── 5. FEATURED INTERACTIVE CALCULATOR (FINTECH LEVEL UI) ──────────────── */}
       <section className="container-main">
-        <div className="mb-4">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-            FEATURED TOOL
-          </p>
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-0.5">
+        <div className="max-w-2xl mb-10 space-y-2">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Interactive Showcase
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
             Compound Interest Calculator
           </h2>
-          <p className="text-xs text-gray-500 mt-0.5">
-            See how your savings can grow over time with the power of compounding.
+          <p className="text-base text-slate-600">
+            Experience the exponential compounding power of consistent investing over time.
           </p>
         </div>
 
-        {/* Tabbed Calculator Container */}
-        <div className="bg-white rounded-xl border border-gray-200/80 p-6 shadow-xs">
-          {/* Basic / Advanced Tab */}
-          <div className="flex gap-4 border-b border-gray-100 pb-3 mb-6">
-            <button
-              onClick={() => setActiveTab("basic")}
-              className={`text-xs font-semibold transition-colors pb-1 ${
-                activeTab === "basic"
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-400 hover:text-gray-700"
-              }`}
-            >
-              Basic
-            </button>
-            <button
-              onClick={() => setActiveTab("advanced")}
-              className={`text-xs font-semibold transition-colors pb-1 ${
-                activeTab === "advanced"
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-400 hover:text-gray-700"
-              }`}
-            >
-              Advanced
-            </button>
+        {/* Modern Card Shell */}
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-10">
+          {/* Segmented Control */}
+          <div className="flex items-center justify-between border-b border-slate-100 pb-6 mb-8">
+            <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/60">
+              <button
+                onClick={() => setActiveTab("basic")}
+                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${
+                  activeTab === "basic"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "text-slate-600 hover:text-slate-950"
+                }`}
+              >
+                Standard Mode
+              </button>
+              <button
+                onClick={() => setActiveTab("advanced")}
+                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${
+                  activeTab === "advanced"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "text-slate-600 hover:text-slate-950"
+                }`}
+              >
+                Advanced Compounding
+              </button>
+            </div>
+
+            <span className="text-xs font-semibold text-slate-500 hidden sm:inline-block">
+              Real-time calculation engine
+            </span>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Inputs (7 cols) */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {/* Initial Investment */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Initial Investment
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-base">
                       $
                     </span>
                     <input
                       type="number"
+                      min="0"
+                      step="100"
                       value={initialInvestment}
                       onChange={(e) => setInitialInvestment(Number(e.target.value) || 0)}
-                      className="w-full pl-7 pr-3 py-2 text-xs rounded border border-gray-200 focus:border-[#1D3A6E] focus:outline-none"
+                      className="w-full pl-9 pr-4 py-3.5 text-base font-semibold text-slate-900 rounded-xl border border-slate-200 focus:border-slate-950 focus:ring-4 focus:ring-slate-100 focus:outline-none transition-all"
                     />
                   </div>
                 </div>
 
-                {/* Regular Contribution */}
+                {/* Monthly Contribution */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
-                    Regular Contribution
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                    Monthly Contribution
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-base">
                       $
                     </span>
                     <input
                       type="number"
+                      min="0"
+                      step="50"
                       value={regularContribution}
                       onChange={(e) => setRegularContribution(Number(e.target.value) || 0)}
-                      className="w-full pl-7 pr-8 py-2 text-xs rounded border border-gray-200 focus:border-[#1D3A6E] focus:outline-none"
+                      className="w-full pl-9 pr-4 py-3.5 text-base font-semibold text-slate-900 rounded-xl border border-slate-200 focus:border-slate-950 focus:ring-4 focus:ring-slate-100 focus:outline-none transition-all"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
-                      %
-                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Annual Interest Rate */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {/* Interest Rate */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Annual Interest Rate
                   </label>
                   <div className="relative">
                     <input
                       type="number"
-                      step="0.1"
+                      step="0.5"
+                      min="0"
+                      max="100"
                       value={annualInterestRate}
                       onChange={(e) => setAnnualInterestRate(Number(e.target.value) || 0)}
-                      className="w-full pl-3 pr-8 py-2 text-xs rounded border border-gray-200 focus:border-[#1D3A6E] focus:outline-none"
+                      className="w-full pl-4 pr-10 py-3.5 text-base font-semibold text-slate-900 rounded-xl border border-slate-200 focus:border-slate-950 focus:ring-4 focus:ring-slate-100 focus:outline-none transition-all"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-base">
                       %
                     </span>
                   </div>
                 </div>
 
-                {/* Investment Period */}
+                {/* Period */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Investment Period
                   </label>
                   <div className="relative">
                     <input
                       type="number"
+                      min="1"
+                      max="50"
                       value={investmentPeriod}
                       onChange={(e) => setInvestmentPeriod(Number(e.target.value) || 1)}
-                      className="w-full pl-3 pr-14 py-2 text-xs rounded border border-gray-200 focus:border-[#1D3A6E] focus:outline-none"
+                      className="w-full pl-4 pr-16 py-3.5 text-base font-semibold text-slate-900 rounded-xl border border-slate-200 focus:border-slate-950 focus:ring-4 focus:ring-slate-100 focus:outline-none transition-all"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">
                       years
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Exact Green Button matching the mockup */}
-              <div className="pt-2">
-                <button
-                  type="button"
-                  className="w-full py-2.5 bg-[#15803D] hover:bg-[#166534] text-white font-bold text-xs rounded flex items-center justify-center gap-1.5 shadow-2xs transition-colors"
-                >
-                  <span>Calculate Results</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+              {/* Advanced Frequency */}
+              {activeTab === "advanced" && (
+                <div className="pt-2 animate-in fade-in duration-200">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                    Compounding Frequency
+                  </label>
+                  <select
+                    value={compoundFrequency}
+                    onChange={(e) => setCompoundFrequency(e.target.value as any)}
+                    className="w-full px-4 py-3.5 text-sm font-semibold text-slate-900 rounded-xl border border-slate-200 focus:border-slate-950 focus:ring-4 focus:ring-slate-100 focus:outline-none bg-white transition-all"
+                  >
+                    <option value="daily">Daily (365x / year)</option>
+                    <option value="monthly">Monthly (12x / year)</option>
+                    <option value="quarterly">Quarterly (4x / year)</option>
+                    <option value="yearly">Annually (1x / year)</option>
+                  </select>
+                </div>
+              )}
+
+              {/* Recharts Visualizer */}
+              {result.yearlyBreakdown.length > 0 && (
+                <div className="pt-4 border-t border-slate-100">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Growth Horizon ({investmentPeriod} Years)
+                    </span>
+                    <div className="flex items-center gap-4 text-xs font-semibold">
+                      <span className="flex items-center gap-1.5 text-slate-500">
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block" /> Contributions
+                      </span>
+                      <span className="flex items-center gap-1.5 text-emerald-600">
+                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" /> Total Portfolio
+                      </span>
+                    </div>
+                  </div>
+                  <div className="h-44 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={result.yearlyBreakdown}>
+                        <defs>
+                          <linearGradient id="chartBalance" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.35} />
+                            <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                          </linearGradient>
+                        </defs>
+                        <XAxis
+                          dataKey="year"
+                          tickLine={false}
+                          axisLine={false}
+                          tick={{ fontSize: 11, fill: "#64748b" }}
+                          tickFormatter={(val) => `Yr ${val}`}
+                        />
+                        <YAxis
+                          tickLine={false}
+                          axisLine={false}
+                          tick={{ fontSize: 11, fill: "#64748b" }}
+                          tickFormatter={(val) => `$${val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val}`}
+                        />
+                        <Tooltip
+                          formatter={(val: any) => [formatCurrency(Number(val)), ""]}
+                          labelFormatter={(label) => `Year ${label}`}
+                          contentStyle={{
+                            backgroundColor: "#0f172a",
+                            border: "none",
+                            borderRadius: "10px",
+                            fontSize: "12px",
+                            color: "#fff",
+                          }}
+                        />
+                        <Area
+                          type="monotone"
+                          dataKey="contributions"
+                          stroke="#94a3b8"
+                          fill="#f1f5f9"
+                        />
+                        <Area
+                          type="monotone"
+                          dataKey="balance"
+                          stroke="#10b981"
+                          strokeWidth={2}
+                          fill="url(#chartBalance)"
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Right Results Panel (5 cols) - Exact match to green mint card */}
-            <div className="lg:col-span-5 bg-[#F0FDF4] rounded-xl p-5 border border-emerald-100 flex flex-col justify-between">
+            {/* Right Results Card (5 cols - High Contrast Luxury Card) */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-2xl p-7 sm:p-9 shadow-xl flex flex-col justify-between space-y-6">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
-                  Estimated Results
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  Estimated Future Value
                 </p>
-                
-                <p className="text-3xl font-extrabold text-gray-900 mt-1">
+                <p className="text-4xl sm:text-5xl font-black text-white mt-2 tracking-tight">
                   {formatCurrency(result.totalValue)}
                 </p>
-                <p className="text-[11px] text-gray-500 mt-0.5">
-                  Total value after {investmentPeriod} years
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  After {investmentPeriod} years of consistent compounding
                 </p>
 
-                <div className="mt-5 space-y-2 pt-3 border-t border-emerald-200/60 text-xs">
-                  <div className="flex justify-between items-center text-gray-600">
-                    <span>Total contributions</span>
-                    <span className="font-semibold text-gray-900">
+                <div className="mt-8 space-y-3.5 pt-6 border-t border-slate-800 text-sm">
+                  <div className="flex justify-between items-center text-slate-300">
+                    <span>Total Deposits:</span>
+                    <span className="font-bold text-white text-base">
                       {formatCurrency(result.totalContributions)}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center text-gray-600">
-                    <span>Total growth (interest)</span>
-                    <span className="font-semibold text-gray-900">
-                      {formatCurrency(result.totalGrowth)}
+                  <div className="flex justify-between items-center text-slate-300">
+                    <span>Compound Interest Earned:</span>
+                    <span className="font-bold text-emerald-400 text-base">
+                      +{formatCurrency(result.totalGrowth)}
                     </span>
                   </div>
                 </div>
 
-                {/* Green Highlight Pill Box */}
-                <div className="mt-4 p-2.5 rounded-lg bg-emerald-100/70 text-emerald-900 flex items-center gap-2 text-[11px] font-medium">
-                  <Sprout className="w-4 h-4 text-emerald-700 flex-shrink-0" />
-                  <span>
-                    Your savings could grow by <strong>{formatPercentage(result.growthPercentage)}</strong> thanks to compound interest.
-                  </span>
+                <div className="mt-6 p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-start gap-3">
+                  <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    Your portfolio could grow by <strong>{formatPercentage(result.growthPercentage)}</strong> strictly from reinvested earnings.
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-emerald-200/60 space-y-2 text-[10px] text-gray-400">
-                <p>
-                  Results are estimates and assume a consistent interest rate. They do not include fees, taxes or other factors that may affect returns.
-                </p>
+              <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
                 <Link
                   href="/tools/compound-interest-calculator"
-                  className="inline-block text-xs font-semibold text-blue-600 hover:underline pt-1"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  View detailed calculator →
+                  <span>Open Full Calculator View</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
+                <span className="text-[11px] text-slate-500">No account required</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────────────── 5. LEARN & GROW BANNER (EXACT MATCH) ──────────────── */}
+      {/* ──────────────── 6. EDITORIAL BANNER (CERAHI DENTISTRY CLEAN AESTHETIC) ──────────────── */}
       <section className="container-main">
-        <div className="bg-[#FAFBFD] border border-gray-200/90 rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-center gap-6">
-          {/* Notebook Photo on Left */}
-          <div className="w-36 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-2xs border border-gray-200">
-            <Image
-              src="/better-money-habits.jpg"
-              alt="Better Money Habits notebook with pen"
-              width={180}
-              height={100}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Text in Middle */}
-          <div className="flex-1 space-y-1 text-center md:text-left">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
-              LEARN &amp; GROW
-            </p>
-            <h3 className="text-base sm:text-lg font-bold text-gray-900">
+        <div className="bg-slate-50 rounded-3xl border border-slate-200 p-8 sm:p-12 lg:p-14 flex flex-col lg:flex-row items-center gap-10 justify-between">
+          <div className="space-y-4 max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+              Knowledge &amp; Habits
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
               Want to make the most of your money?
-            </h3>
-            <p className="text-xs text-gray-500">
-              Explore our guides, get practical tips and learn how to build better financial habits.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed">
+              Explore in-depth articles written by experienced finance journalists on budgeting realities, high-yield savings, and digital banking reviews.
             </p>
           </div>
 
-          {/* Button on Right */}
-          <div className="flex-shrink-0">
+          <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0 w-full sm:w-auto">
             <Link
               href="/learn"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1D3A6E] hover:bg-[#152a50] text-white text-xs font-bold rounded-md shadow-2xs transition-colors"
+              className="px-8 py-4 bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm rounded-full shadow-md text-center transition-all active:scale-95"
             >
-              <span>Browse our guides</span>
-              <ArrowRight className="w-3 h-3" />
+              Browse all guides
+            </Link>
+            <Link
+              href="/fintech"
+              className="px-8 py-4 bg-white hover:bg-slate-100 text-slate-950 border border-slate-200 font-bold text-sm rounded-full text-center transition-all"
+            >
+              Explore Fintech
             </Link>
           </div>
         </div>

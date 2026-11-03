@@ -25,48 +25,48 @@ export default function NewsletterStrip({
   };
 
   return (
-    <div className={`bg-gradient-to-r from-slate-900 to-[#102444] text-white rounded-2xl p-8 sm:p-12 ${className}`}>
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="space-y-3">
-          <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-            <Mail className="w-4 h-4" />
-            <span>Newsletter</span>
+    <div className={`bg-slate-950 text-white rounded-3xl p-10 sm:p-14 shadow-xl border border-slate-800 ${className}`}>
+      <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-bold uppercase tracking-wider text-slate-300">
+            <Mail className="w-3.5 h-3.5 text-blue-400" />
+            <span>Weekly Newsletter</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
             {title}
           </h2>
-          <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-md">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-md">
             {subtitle}
           </p>
         </div>
 
         <div>
           {subscribed ? (
-            <div className="p-4 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-300 flex items-center gap-3 text-sm">
-              <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-emerald-400" />
+            <div className="p-6 rounded-2xl bg-emerald-950/80 border border-emerald-800 text-emerald-300 flex items-center gap-3 text-base">
+              <CheckCircle2 className="w-6 h-6 flex-shrink-0 text-emerald-400" />
               <span>Thank you! You&apos;re now subscribed to TheFinScoop newsletter.</span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-2">
-              <div className="flex flex-col sm:flex-row gap-2.5">
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:bg-white/20 focus:border-emerald-400 transition-all"
+                  className="flex-1 px-5 py-4 rounded-full bg-slate-900 border border-slate-800 text-white placeholder-slate-400 text-base focus:outline-none focus:border-white transition-all"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-[#22C55E] hover:bg-emerald-600 text-white font-bold text-sm rounded-xl shadow-md transition-all active:scale-95 whitespace-nowrap"
+                  className="px-8 py-4 bg-white hover:bg-slate-100 text-slate-950 font-bold text-base rounded-full shadow-md transition-all active:scale-95 whitespace-nowrap"
                 >
                   Subscribe
                 </button>
               </div>
-              <p className="text-[11px] text-gray-400 flex items-center gap-1.5 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>No spam. Unsubscribe anytime. Your privacy is protected.</span>
+              <p className="text-xs text-slate-400 flex items-center gap-1.5 pt-1">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Zero spam. Unsubscribe anytime. Your privacy is respected.</span>
               </p>
             </form>
           )}
