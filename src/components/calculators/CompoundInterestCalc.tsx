@@ -36,52 +36,52 @@ export default function CompoundInterestCalc() {
   });
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200/80 shadow-md overflow-hidden">
+    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
       {/* Top Bar / Tabs */}
-      <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/50 px-6 pt-4">
-        <div className="flex gap-6">
+      <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/80 px-8 py-5">
+        <div className="flex gap-8">
           <button
             onClick={() => setActiveTab("basic")}
-            className={`pb-3 text-sm font-semibold border-b-2 transition-all ${
+            className={`pb-2 text-base font-bold border-b-2 transition-all ${
               activeTab === "basic"
-                ? "border-brand-navy text-brand-navy"
-                : "border-transparent text-gray-500 hover:text-gray-800"
+                ? "border-slate-950 text-slate-950"
+                : "border-transparent text-slate-400 hover:text-slate-800"
             }`}
           >
-            Basic
+            Basic Calculator
           </button>
           <button
             onClick={() => setActiveTab("advanced")}
-            className={`pb-3 text-sm font-semibold border-b-2 transition-all ${
+            className={`pb-2 text-base font-bold border-b-2 transition-all ${
               activeTab === "advanced"
-                ? "border-brand-navy text-brand-navy"
-                : "border-transparent text-gray-500 hover:text-gray-800"
+                ? "border-slate-950 text-slate-950"
+                : "border-transparent text-slate-400 hover:text-slate-800"
             }`}
           >
-            Advanced
+            Frequency Settings
           </button>
         </div>
 
         <button
           onClick={() => setShowChart(!showChart)}
-          className="inline-flex items-center gap-1.5 pb-3 text-xs font-semibold text-blue-600 hover:text-blue-800"
+          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-100 shadow-2xs transition-colors"
         >
-          <BarChart2 className="w-3.5 h-3.5" />
-          <span>{showChart ? "Hide Chart" : "Show Growth Chart"}</span>
+          <BarChart2 className="w-3.5 h-3.5 text-blue-600" />
+          <span>{showChart ? "Hide Graph" : "Show Growth Graph"}</span>
         </button>
       </div>
 
-      <div className="p-6 md:p-8 grid md:grid-cols-12 gap-8 items-start">
+      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
         {/* Form Inputs (7 cols) */}
-        <div className="md:col-span-7 space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Initial Investment */}
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+              <label className="block text-sm font-bold text-slate-900 mb-2">
                 Initial Investment
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   $
                 </span>
                 <input
@@ -90,18 +90,18 @@ export default function CompoundInterestCalc() {
                   step="100"
                   value={initialInvestment}
                   onChange={(e) => setInitialInvestment(Number(e.target.value) || 0)}
-                  className="w-full pl-8 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
               </div>
             </div>
 
             {/* Monthly Contribution */}
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+              <label className="block text-sm font-bold text-slate-900 mb-2">
                 Monthly Contribution
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   $
                 </span>
                 <input
@@ -110,16 +110,16 @@ export default function CompoundInterestCalc() {
                   step="50"
                   value={regularContribution}
                   onChange={(e) => setRegularContribution(Number(e.target.value) || 0)}
-                  className="w-full pl-8 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Annual Interest Rate */}
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+              <label className="block text-sm font-bold text-slate-900 mb-2">
                 Annual Interest Rate
               </label>
               <div className="relative">
@@ -130,9 +130,9 @@ export default function CompoundInterestCalc() {
                   step="0.5"
                   value={annualInterestRate}
                   onChange={(e) => setAnnualInterestRate(Number(e.target.value) || 0)}
-                  className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   %
                 </span>
               </div>
@@ -140,7 +140,7 @@ export default function CompoundInterestCalc() {
 
             {/* Investment Period */}
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+              <label className="block text-sm font-bold text-slate-900 mb-2">
                 Investment Period
               </label>
               <div className="relative">
@@ -150,9 +150,9 @@ export default function CompoundInterestCalc() {
                   max="50"
                   value={investmentPeriod}
                   onChange={(e) => setInvestmentPeriod(Number(e.target.value) || 1)}
-                  className="w-full pl-3 pr-14 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   years
                 </span>
               </div>
@@ -161,44 +161,44 @@ export default function CompoundInterestCalc() {
 
           {/* Advanced Tab Options */}
           {activeTab === "advanced" && (
-            <div className="pt-2 animate-in fade-in duration-150">
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 animate-in fade-in duration-150">
+              <label className="block text-sm font-bold text-slate-900 mb-2">
                 Compounding Frequency
               </label>
               <select
                 value={compoundFrequency}
                 onChange={(e) => setCompoundFrequency(e.target.value as any)}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all bg-white"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all bg-white"
               >
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="quarterly">Quarterly</option>
-                <option value="yearly">Annually</option>
+                <option value="daily">Daily (365 times / year)</option>
+                <option value="monthly">Monthly (12 times / year — Standard)</option>
+                <option value="quarterly">Quarterly (4 times / year)</option>
+                <option value="yearly">Annually (1 time / year)</option>
               </select>
             </div>
           )}
 
           {/* Interactive Recharts Area Visualizer */}
           {showChart && result.yearlyBreakdown.length > 0 && (
-            <div className="pt-4 border-t border-gray-100">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
-                  Portfolio Growth Over {investmentPeriod} Years
+            <div className="pt-6 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  Growth Trajectory Over {investmentPeriod} Years
                 </span>
-                <div className="flex items-center gap-3 text-[10px]">
-                  <span className="flex items-center gap-1 text-gray-500">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 inline-block" /> Contributions
+                <div className="flex items-center gap-4 text-xs font-bold">
+                  <span className="flex items-center gap-1.5 text-slate-500">
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" /> Contributions
                   </span>
-                  <span className="flex items-center gap-1 text-emerald-700 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> Total Value
+                  <span className="flex items-center gap-1.5 text-emerald-600">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" /> Total Portfolio
                   </span>
                 </div>
               </div>
-              <div className="h-44 w-full pt-2">
+              <div className="h-56 w-full pt-2">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart
                     data={result.yearlyBreakdown}
-                    margin={{ top: 5, right: 10, left: 0, bottom: 0 }}
+                    margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
                   >
                     <defs>
                       <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
@@ -214,30 +214,32 @@ export default function CompoundInterestCalc() {
                       dataKey="year"
                       tickLine={false}
                       axisLine={false}
-                      tick={{ fontSize: 10, fill: "#9ca3af" }}
+                      tick={{ fontSize: 12, fill: "#64748b" }}
                       tickFormatter={(val) => `Yr ${val}`}
                     />
                     <YAxis
                       tickLine={false}
                       axisLine={false}
-                      tick={{ fontSize: 10, fill: "#9ca3af" }}
+                      tick={{ fontSize: 12, fill: "#64748b" }}
                       tickFormatter={(val) => `$${val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val}`}
                     />
                     <Tooltip
                       formatter={(val: any) => [formatCurrency(Number(val)), ""]}
                       labelFormatter={(label) => `Year ${label}`}
                       contentStyle={{
-                        backgroundColor: "#0f172a",
-                        border: "none",
-                        borderRadius: "8px",
-                        fontSize: "11px",
+                        backgroundColor: "#020617",
+                        border: "1px solid #1e293b",
+                        borderRadius: "16px",
+                        fontSize: "13px",
                         color: "#fff",
+                        padding: "12px 16px",
                       }}
                     />
                     <Area
                       type="monotone"
                       dataKey="contributions"
                       stroke="#3b82f6"
+                      strokeWidth={2}
                       fillOpacity={1}
                       fill="url(#colorContrib)"
                     />
@@ -245,6 +247,7 @@ export default function CompoundInterestCalc() {
                       type="monotone"
                       dataKey="balance"
                       stroke="#10b981"
+                      strokeWidth={2}
                       fillOpacity={1}
                       fill="url(#colorBalance)"
                     />
@@ -256,54 +259,48 @@ export default function CompoundInterestCalc() {
         </div>
 
         {/* Results Panel (5 cols) */}
-        <div className="md:col-span-5 bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-xl p-6 border border-blue-100/60 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-800 flex flex-col justify-between space-y-8">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
-              Estimated Results
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Projected Portfolio Value
             </span>
-            <div className="mt-1">
-              <p className="text-3xl lg:text-4xl font-extrabold text-brand-navy">
+            <div className="mt-3">
+              <p className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
                 {formatCurrency(result.totalValue)}
               </p>
-              <p className="text-xs text-gray-500 mt-0.5">
-                Total value after {investmentPeriod} years
+              <p className="text-sm text-slate-400 mt-1">
+                Value after {investmentPeriod} years of compounding
               </p>
             </div>
 
-            <div className="mt-6 space-y-3 pt-4 border-t border-gray-200/60 text-xs">
-              <div className="flex justify-between items-center text-gray-600">
-                <span>Total contributions:</span>
-                <span className="font-semibold text-gray-900">
+            <div className="mt-8 space-y-4 pt-6 border-t border-slate-800 text-sm">
+              <div className="flex justify-between items-center text-slate-300">
+                <span>Total deposits:</span>
+                <span className="font-bold text-white text-base">
                   {formatCurrency(result.totalContributions)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-gray-600">
-                <span>Total growth (interest):</span>
-                <span className="font-semibold text-green-700">
+              <div className="flex justify-between items-center text-slate-300">
+                <span>Total compound interest:</span>
+                <span className="font-bold text-emerald-400 text-base">
                   +{formatCurrency(result.totalGrowth)}
                 </span>
               </div>
             </div>
 
             {/* Growth callout badge */}
-            <div className="mt-5 p-3 rounded-lg bg-green-50 border border-green-200/80 flex items-center gap-2.5 text-xs text-green-900">
-              <Sparkles className="w-4 h-4 text-green-600 flex-shrink-0" />
+            <div className="mt-6 p-4 rounded-2xl bg-emerald-950/70 border border-emerald-800 text-sm text-emerald-300 flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
               <span>
-                Your savings could grow by <strong>{formatPercentage(result.growthPercentage)}</strong> thanks to compound interest.
+                Your money grows by <strong>+{formatPercentage(result.growthPercentage)}</strong> strictly from compounding interest.
               </span>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-gray-200/60 flex items-center justify-between text-xs text-gray-500">
-            <span className="text-[11px] text-gray-400">
-              Results assume consistent interest rates.
+          <div className="pt-4 border-t border-slate-800 text-xs text-slate-400">
+            <span>
+              Projections assume a continuous rate of return and monthly compounding without account maintenance fees.
             </span>
-            <Link
-              href="/tools/compound-interest-calculator"
-              className="text-blue-600 font-semibold hover:underline"
-            >
-              View detailed calculator →
-            </Link>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import SearchBar from "@/components/ui/SearchBar";
 import ToolCard from "@/components/cards/ToolCard";
 import CategoryCard from "@/components/cards/CategoryCard";
 import CompoundInterestCalc from "@/components/calculators/CompoundInterestCalc";
+import ToolsDirectory from "@/components/tools/ToolsDirectory";
 import { TOOLS, TOOL_CATEGORIES, POPULAR_TOOL_TAGS } from "@/lib/constants";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -115,11 +116,7 @@ export default function ToolsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TOOLS.map((tool) => (
-            <ToolCard key={tool.slug} tool={tool} />
-          ))}
-        </div>
+        <ToolsDirectory tools={TOOLS} categories={TOOL_CATEGORIES} />
       </section>
 
       {/* ──────────────── 4. FEATURED TOOL (COMPOUND INTEREST) ──────────────── */}

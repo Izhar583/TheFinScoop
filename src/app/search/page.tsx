@@ -7,6 +7,7 @@ import { MOCK_ARTICLES } from "@/data/mockData";
 import { TOOLS } from "@/lib/constants";
 import ArticleCard from "@/components/cards/ArticleCard";
 import ToolCard from "@/components/cards/ToolCard";
+import { Search, Sparkles } from "lucide-react";
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -29,98 +30,106 @@ function SearchContent() {
   const totalResults = matchingArticles.length + matchingTools.length;
 
   return (
-    <div className="container-main py-12">
+    <div className="container-main py-12 lg:py-20 min-h-screen">
       {/* Search Header */}
-      <div className="mb-10 max-w-2xl">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
+      <div className="mb-12 max-w-3xl space-y-4">
+        <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500">
+          <Search className="w-3.5 h-3.5 text-blue-600" />
+          Search Knowledge Base &amp; Tools
+        </span>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
           Search results
         </h1>
-        <SearchBar initialQuery={query} />
+        <div className="pt-2">
+          <SearchBar initialQuery={query} />
+        </div>
         {query && (
-          <p className="text-sm text-gray-500 mt-4">
-            Showing results for &ldquo;<strong>{query}</strong>&rdquo; ({totalResults} found)
+          <p className="text-base text-slate-600 mt-4">
+            Showing results for &ldquo;<strong className="text-slate-900">{query}</strong>&rdquo; ({totalResults} found)
           </p>
         )}
       </div>
 
-      <div className="grid md:grid-cols-[240px_1fr] gap-10 items-start">
+      <div className="grid md:grid-cols-[260px_1fr] gap-10 items-start">
         {/* Filters */}
-        <aside className="bg-gray-50/70 p-5 rounded-xl border border-gray-100 space-y-6">
+        <aside className="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 space-y-6">
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-600 mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
               Filter by type
             </h3>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2">
               <button
                 onClick={() => setSelectedType("all")}
-                className={`block w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`block w-full text-left px-4 py-2.5 rounded-full text-sm font-bold transition-colors ${
                   selectedType === "all"
-                    ? "bg-brand-navy text-white font-semibold"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-slate-950 text-white shadow-sm"
+                    : "text-slate-700 hover:bg-slate-200/80"
                 }`}
               >
-                All ({totalResults})
+                All Results ({totalResults})
               </button>
               <button
                 onClick={() => setSelectedType("tools")}
-                className={`block w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`block w-full text-left px-4 py-2.5 rounded-full text-sm font-bold transition-colors ${
                   selectedType === "tools"
-                    ? "bg-brand-navy text-white font-semibold"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-slate-950 text-white shadow-sm"
+                    : "text-slate-700 hover:bg-slate-200/80"
                 }`}
               >
-                Tools ({matchingTools.length})
+                Calculators &amp; Tools ({matchingTools.length})
               </button>
               <button
                 onClick={() => setSelectedType("articles")}
-                className={`block w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`block w-full text-left px-4 py-2.5 rounded-full text-sm font-bold transition-colors ${
                   selectedType === "articles"
-                    ? "bg-brand-navy text-white font-semibold"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-slate-950 text-white shadow-sm"
+                    : "text-slate-700 hover:bg-slate-200/80"
                 }`}
               >
-                Articles ({matchingArticles.length})
+                Guides &amp; Articles ({matchingArticles.length})
               </button>
             </div>
           </div>
         </aside>
 
         {/* Results Stream */}
-        <main className="space-y-8">
+        <main className="space-y-12">
           {totalResults === 0 ? (
-            <div className="text-center py-16 bg-gray-50 rounded-2xl border border-gray-100">
-              <span className="text-4xl">🔍</span>
-              <h3 className="text-lg font-bold text-gray-800 mt-3">No matching results</h3>
-              <p className="text-sm text-gray-500 mt-1 max-w-sm mx-auto">
-                Try searching for terms like &quot;interest&quot;, &quot;budget&quot;, &quot;banking&quot;, or &quot;loan&quot;.
+            <div className="text-center py-20 bg-slate-50 rounded-3xl border border-slate-200/80 space-y-3">
+              <div className="w-14 h-14 rounded-2xl bg-slate-200/80 text-slate-700 flex items-center justify-center mx-auto">
+                <Search className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mt-4">No matching results</h3>
+              <p className="text-base text-slate-600 max-w-md mx-auto">
+                Try searching for broader keywords like &quot;interest&quot;, &quot;budget&quot;, &quot;mortgage&quot;, &quot;banking&quot;, or &quot;loan&quot;.
               </p>
             </div>
           ) : (
             <>
               {(selectedType === "all" || selectedType === "tools") && matchingTools.length > 0 && (
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">
-                    Matching Calculators &amp; Tools ({matchingTools.length})
+                <section>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                    Finance Calculators ({matchingTools.length})
                   </h2>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     {matchingTools.map((t) => (
                       <ToolCard key={t.slug} tool={t} />
                     ))}
                   </div>
-                </div>
+                </section>
               )}
 
               {(selectedType === "all" || selectedType === "articles") && matchingArticles.length > 0 && (
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">
+                <section>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-6">
                     Articles &amp; Guides ({matchingArticles.length})
                   </h2>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     {matchingArticles.map((a) => (
                       <ArticleCard key={a.slug} article={a} />
                     ))}
                   </div>
-                </div>
+                </section>
               )}
             </>
           )}
@@ -134,8 +143,8 @@ export default function SearchPage() {
   return (
     <Suspense
       fallback={
-        <div className="container-main py-16 text-center text-sm text-gray-400">
-          Loading search results...
+        <div className="container-main py-20 text-center">
+          <p className="text-slate-500 font-semibold text-lg">Loading search results...</p>
         </div>
       }
     >

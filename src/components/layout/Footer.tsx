@@ -13,11 +13,11 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="inline-block">
               <Image
-                src="/whitelogo.jpeg"
+                src="/whitelogo.png"
                 alt="TheFinScoop White Logo"
-                width={180}
-                height={48}
-                className="h-9 w-auto object-contain"
+                width={200}
+                height={60}
+                className="h-18 w-auto object-contain"
               />
             </Link>
             <p className="text-base text-slate-300 leading-relaxed max-w-sm">

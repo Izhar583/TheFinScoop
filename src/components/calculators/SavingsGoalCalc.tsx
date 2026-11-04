@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { calculateSavingsGoal } from "@/lib/calculators";
 import { formatCurrency } from "@/lib/utils";
-import { Target, Sparkles } from "lucide-react";
+import { Target, Sparkles, TrendingUp, CheckCircle2 } from "lucide-react";
 
 export default function SavingsGoalCalc() {
   const [targetAmount, setTargetAmount] = useState<number>(20000);
@@ -19,17 +19,17 @@ export default function SavingsGoalCalc() {
   });
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200/80 shadow-md overflow-hidden">
-      <div className="p-6 md:p-8 grid md:grid-cols-12 gap-8 items-start">
+    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
         {/* Inputs */}
-        <div className="md:col-span-7 space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Savings Target
+              <label className="block text-sm font-bold text-slate-900 mb-2">
+                Savings Target Amount
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   $
                 </span>
                 <input
@@ -38,17 +38,17 @@ export default function SavingsGoalCalc() {
                   step="500"
                   value={targetAmount}
                   onChange={(e) => setTargetAmount(Number(e.target.value) || 0)}
-                  className="w-full pl-8 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Current Savings
+              <label className="block text-sm font-bold text-slate-900 mb-2">
+                Starting Savings Already Saved
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   $
                 </span>
                 <input
@@ -57,16 +57,16 @@ export default function SavingsGoalCalc() {
                   step="250"
                   value={currentSavings}
                   onChange={(e) => setCurrentSavings(Number(e.target.value) || 0)}
-                  className="w-full pl-8 pr-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Timeframe
+              <label className="block text-sm font-bold text-slate-900 mb-2">
+                Target Timeframe
               </label>
               <div className="relative">
                 <input
@@ -75,17 +75,17 @@ export default function SavingsGoalCalc() {
                   max="360"
                   value={timelineMonths}
                   onChange={(e) => setTimelineMonths(Number(e.target.value) || 1)}
-                  className="w-full pl-3 pr-16 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-4 pr-20 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   months
                 </span>
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Expected Interest (HYSA / APY)
+              <label className="block text-sm font-bold text-slate-900 mb-2">
+                Expected Annual APY (HYSA)
               </label>
               <div className="relative">
                 <input
@@ -95,54 +95,89 @@ export default function SavingsGoalCalc() {
                   step="0.1"
                   value={annualInterestRate}
                   onChange={(e) => setAnnualInterestRate(Number(e.target.value) || 0)}
-                  className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-brand-navy focus:ring-1 focus:ring-brand-navy transition-all"
+                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
                 />
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
                   %
                 </span>
               </div>
             </div>
           </div>
+
+          {/* Quick preset targets */}
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+              Popular Milestone Targets:
+            </span>
+            <div className="flex flex-wrap gap-2.5">
+              {[5000, 10000, 25000, 50000].map((amt) => (
+                <button
+                  key={amt}
+                  type="button"
+                  onClick={() => setTargetAmount(amt)}
+                  className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${
+                    targetAmount === amt
+                      ? "bg-slate-950 text-white border-slate-950 shadow-sm"
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  ${(amt / 1000).toFixed(0)}k Goal
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Results */}
-        <div className="md:col-span-5 bg-gradient-to-br from-slate-50 to-emerald-50/40 rounded-xl p-6 border border-emerald-100/60 flex flex-col justify-between">
+        {/* Results Panel */}
+        <div className="lg:col-span-5 bg-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-800 flex flex-col justify-between space-y-6">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
-              Required Monthly Savings
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Required Monthly Contribution
             </span>
-            <div className="mt-1">
-              <p className="text-3xl lg:text-4xl font-black text-emerald-700">
+            <div className="mt-3">
+              <p className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
                 {formatCurrency(result.monthlyContributionNeeded)}
-                <span className="text-sm font-normal text-gray-500"> /mo</span>
+                <span className="text-base font-normal text-slate-400"> /mo</span>
+              </p>
+              <p className="text-sm text-slate-400 mt-1">
+                Deposit this amount monthly for {timelineMonths} months
               </p>
             </div>
 
-            <div className="mt-6 space-y-3 pt-4 border-t border-gray-200/60 text-xs">
-              <div className="flex justify-between items-center text-gray-600">
-                <span>Total contributions needed:</span>
-                <span className="font-semibold text-gray-900">
+            <div className="mt-8 space-y-4 pt-6 border-t border-slate-800 text-sm">
+              <div className="flex justify-between items-center text-slate-300">
+                <span>Total out-of-pocket deposits:</span>
+                <span className="font-bold text-white text-base">
                   {formatCurrency(result.totalContributions)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-gray-600">
-                <span>Interest earned towards goal:</span>
-                <span className="font-semibold text-emerald-700">
+              <div className="flex justify-between items-center text-slate-300">
+                <span>Compound interest earned:</span>
+                <span className="font-bold text-emerald-400 text-base">
                   +{formatCurrency(result.interestEarned)}
+                </span>
+              </div>
+              <div className="flex justify-between items-center text-slate-300 pt-3 border-t border-slate-800/80">
+                <span>Final Target Portfolio:</span>
+                <span className="font-extrabold text-white text-lg">
+                  {formatCurrency(targetAmount)}
                 </span>
               </div>
             </div>
 
-            <div className="mt-5 p-3 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-2 text-xs text-emerald-900">
-              <Sparkles className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+            <div className="mt-6 p-4 rounded-2xl bg-emerald-950/70 border border-emerald-800 text-xs text-emerald-300 flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
               <span>
-                By saving ${result.monthlyContributionNeeded}/mo, you hit your ${formatCurrency(targetAmount)} goal in {timelineMonths} months!
+                By keeping funds in a {annualInterestRate}% APY High-Yield Savings Account, interest pays {formatCurrency(result.interestEarned)} toward your target.
               </span>
             </div>
+          </div>
+
+          <div className="pt-2 text-xs text-slate-500">
+            *Assumes constant monthly deposits made at regular intervals.
           </div>
         </div>
       </div>
     </div>
   );
 }
-

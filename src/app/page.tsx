@@ -51,7 +51,7 @@ export default function HomePage() {
   return (
     <div className="space-y-24 sm:space-y-32 pb-24 bg-white selection:bg-slate-900 selection:text-white">
       {/* ──────────────── 1. HERO SECTION (CLEAN & PROFESSIONAL) ──────────────── */}
-      <section className="relative pt-12 sm:pt-20 pb-16 lg:pb-24 bg-gradient-to-b from-slate-50/70 via-white to-white overflow-hidden border-b border-slate-100">
+      <section className="relative pt-8 sm:pt-16 bg-gradient-to-b from-slate-50/70 via-white to-white overflow-hidden border-b border-slate-100">
         <div className="container-main">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Column (High-impact typography & Search) */}
@@ -92,24 +92,7 @@ export default function HomePage() {
                 </form>
               </div>
 
-              {/* Popular Tools Pills */}
-              <div className="flex flex-wrap items-center gap-2 pt-2 text-sm text-slate-500">
-                <span className="font-medium text-slate-700">Popular:</span>
-                {[
-                  { label: "Compound Interest", href: "/tools/compound-interest-calculator" },
-                  { label: "Loan Calculator", href: "/tools/loan-payment-calculator" },
-                  { label: "Savings Goal", href: "/tools/savings-goal-calculator" },
-                  { label: "Mortgage", href: "/tools/mortgage-calculator" },
-                ].map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 text-xs font-semibold transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+              
             </div>
 
             {/* Right Column (Hero Visual Mockup with Floating Stats) */}
@@ -118,10 +101,10 @@ export default function HomePage() {
                 <Image
                   src="/tools-laptop.jpg"
                   alt="Financial analytics dashboard on laptop screen"
-                  width={640}
-                  height={340}
+                  width={840}
+                  height={640}
                   priority
-                  className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
+                  className="w-full h-90 object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -151,7 +134,7 @@ export default function HomePage() {
               <p className="text-sm text-slate-400">Zero signup, zero paywalls</p>
             </div>
             <div className="space-y-2 pt-4 sm:pt-0 sm:pl-8">
-              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">250K+</p>
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">2K+</p>
               <p className="text-base font-bold text-slate-200">Active Readers</p>
               <p className="text-sm text-slate-400">Trust our weekly insights</p>
             </div>
@@ -161,7 +144,7 @@ export default function HomePage() {
               <p className="text-sm text-slate-400">No sponsored algorithm bias</p>
             </div>
             <div className="space-y-2 pt-4 sm:pt-0 sm:pl-8">
-              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">$50M+</p>
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">$10M+</p>
               <p className="text-base font-bold text-slate-200">Savings Modeled</p>
               <p className="text-sm text-slate-400">Calculated by our community</p>
             </div>

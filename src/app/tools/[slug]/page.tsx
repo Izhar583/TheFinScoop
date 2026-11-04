@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { TOOLS } from "@/lib/constants";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import ToolCard from "@/components/cards/ToolCard";
 import CompoundInterestCalc from "@/components/calculators/CompoundInterestCalc";
 import LoanPaymentCalc from "@/components/calculators/LoanPaymentCalc";
 import MortgageCalc from "@/components/calculators/MortgageCalc";
 import SavingsGoalCalc from "@/components/calculators/SavingsGoalCalc";
 import BudgetPlannerCalc from "@/components/calculators/BudgetPlannerCalc";
+import DebtPayoffCalc from "@/components/calculators/DebtPayoffCalc";
 
 interface ToolPageProps {
   params: Promise<{ slug: string }>;
@@ -40,8 +41,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
       case "compound-interest-calculator":
         return <CompoundInterestCalc />;
       case "loan-payment-calculator":
-      case "debt-payoff-calculator":
         return <LoanPaymentCalc />;
+      case "debt-payoff-calculator":
+        return <DebtPayoffCalc />;
       case "mortgage-calculator":
         return <MortgageCalc />;
       case "savings-goal-calculator":
@@ -56,45 +58,54 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const otherTools = TOOLS.filter((t) => t.slug !== slug).slice(0, 3);
 
   return (
-    <div className="py-12 bg-gray-50/50 min-h-screen">
+    <div className="py-12 lg:py-20 bg-white min-h-screen">
       <div className="container-main max-w-5xl">
         {/* Back Link */}
-        <div className="mb-6">
+        <div className="mb-8">
           <Link
             href="/tools"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-brand-navy transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to all calculators</span>
+            <span>All Calculators &amp; Tools</span>
           </Link>
         </div>
 
         {/* Header */}
-        <div className="mb-8">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
-            Free Finance Calculator
+        <div className="mb-12 max-w-3xl space-y-3">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+            100% Free · Interactive Financial Tool
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {tool.name}
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-1 max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
             {tool.description}
           </p>
         </div>
 
         {/* Live Interactive Calculator */}
-        <div className="mb-16">
+        <div className="mb-20">
           {renderCalculator()}
         </div>
 
         {/* Explore More Tools */}
-        <div className="pt-8 border-t border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-gray-900">
-              Related calculators you might like
-            </h2>
-            <Link href="/tools" className="text-xs font-bold text-blue-600 hover:underline">
-              View all tools →
+        <div className="pt-12 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                Related Tools
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">
+                Other calculators you might need
+              </h2>
+            </div>
+            <Link
+              href="/tools"
+              className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+            >
+              View directory →
             </Link>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

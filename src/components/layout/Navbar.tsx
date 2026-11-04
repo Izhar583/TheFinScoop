@@ -37,12 +37,13 @@ export default function Navbar() {
           {/* Logo with high sharpness */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="TheFinScoop - Make money make sense"
-              width={180}
-              height={48}
+             width={200}
+                height={60}
+                className="h-28 sm:h-16 w-auto object-contain"
               priority
-              className="h-9 sm:h-11 w-auto object-contain"
+              
             />
           </Link>
 
