@@ -37,18 +37,18 @@ export default function SearchBar({
 
   return (
     <div className={`w-full max-w-2xl ${className}`}>
-      <form onSubmit={handleSubmit} className="relative shadow-sm rounded-full overflow-hidden border border-slate-200/90 bg-white">
+      <form onSubmit={handleSubmit} className="relative shadow-sm rounded-full overflow-hidden border border-[#E5DFD3] bg-white focus-within:border-[#D9541E] focus-within:ring-4 focus-within:ring-[#D9541E]/15 transition-all">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={placeholder}
-          className="w-full bg-white text-slate-900 placeholder-slate-400 pl-14 pr-32 py-4 text-base rounded-full focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+          className="w-full bg-white text-[#111111] placeholder-[#737373] pl-14 pr-32 py-4 text-base rounded-full focus:outline-none transition-all"
         />
-        <Search className="w-5 h-5 text-slate-400 absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none" />
+        <Search className="w-5 h-5 text-[#737373] absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none" />
         <button
           type="submit"
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm px-6 py-2.5 rounded-full transition-colors"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#D9541E] hover:bg-[#BF4413] text-white font-bold text-sm px-6 py-2.5 rounded-full transition-colors active:scale-95 shadow-xs"
         >
           Search
         </button>
@@ -57,7 +57,7 @@ export default function SearchBar({
       {/* Popular Tags */}
       {popularTags.length > 0 && (
         <div className="flex flex-wrap items-center gap-2 mt-4 text-sm">
-          <span className={isDark ? "text-slate-400 font-semibold text-xs uppercase tracking-wider" : "text-slate-500 font-semibold text-xs uppercase tracking-wider"}>
+          <span className={isDark ? "text-[#999999] font-semibold text-xs uppercase tracking-wider" : "text-[#737373] font-semibold text-xs uppercase tracking-wider"}>
             Popular:
           </span>
           {popularTags.map((tag) => (
@@ -67,8 +67,8 @@ export default function SearchBar({
               onClick={() => handleTagClick(tag)}
               className={
                 isDark
-                  ? "bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-full text-xs font-semibold transition-colors"
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold transition-colors"
+                  ? "bg-white/10 hover:bg-white/20 text-white px-3.5 py-1 rounded-full text-xs font-semibold transition-colors"
+                  : "bg-white hover:bg-[#F3EEE3] text-[#111111] hover:text-[#D9541E] border border-[#E5DFD3] px-3.5 py-1 rounded-full text-xs font-semibold transition-colors shadow-2xs"
               }
             >
               {tag}

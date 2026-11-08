@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SearchBar from "@/components/ui/SearchBar";
 import ArticleCard from "@/components/cards/ArticleCard";
+import NewsletterStrip from "@/components/sections/NewsletterStrip";
 import { FINTECH_CATEGORIES, POPULAR_FINTECH_TAGS } from "@/lib/constants";
 import { MOCK_ARTICLES } from "@/data/mockData";
 import { 
@@ -59,23 +60,23 @@ export default function FintechPage() {
   ).concat(MOCK_ARTICLES.slice(0, 1));
 
   return (
-    <div className="space-y-24 pb-28">
+    <div className="space-y-24 pb-28 bg-[#F3EEE3]">
       {/* ──────────────── 1. HERO SECTION ──────────────── */}
-      <section className="bg-white border-b border-slate-100 pt-12 pb-16 lg:pt-20 lg:pb-24">
+      <section className="border-b border-[#E5DFD3] pt-12 pb-16 lg:pt-20 lg:pb-24">
         <div className="container-main">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold tracking-wider text-slate-800 uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D9541E]/10 border border-[#D9541E]/20 text-xs font-bold tracking-wider text-[#D9541E] uppercase">
+                <Sparkles className="w-3.5 h-3.5 text-[#D9541E]" />
                 Fintech Hub &amp; Product Reviews
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-                The technology behind your money.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#111111] tracking-tight leading-[1.12]">
+                The technology behind <span className="italic font-serif font-normal text-[#D9541E]">your money.</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-[#4A4A4A] max-w-xl leading-relaxed">
                 Explore how modern fintech is reshaping banking, cross-border payments, investing, and security — with clear guides and rigorous benchmarks.
               </p>
 
@@ -87,63 +88,63 @@ export default function FintechPage() {
               </div>
 
               {/* Value Propositions Pill Grid */}
-              <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-slate-200">
+              <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-[#E5DFD3]">
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-white border border-[#E5DFD3] flex items-center justify-center text-[#D9541E] flex-shrink-0 mt-0.5 shadow-2xs">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">Better Access</p>
-                    <p className="text-xs text-slate-500 mt-0.5">Unbanked &amp; global reach</p>
+                    <p className="text-sm font-bold text-[#111111]">Better Access</p>
+                    <p className="text-xs text-[#737373] mt-0.5">Unbanked &amp; global reach</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-white border border-[#E5DFD3] flex items-center justify-center text-[#D9541E] flex-shrink-0 mt-0.5 shadow-2xs">
                     <Zap className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">Lower Fees</p>
-                    <p className="text-xs text-slate-500 mt-0.5">Zero hidden margins</p>
+                    <p className="text-sm font-bold text-[#111111]">Lower Fees</p>
+                    <p className="text-xs text-[#737373] mt-0.5">Zero hidden margins</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-white border border-[#E5DFD3] flex items-center justify-center text-[#D9541E] flex-shrink-0 mt-0.5 shadow-2xs">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">Bank-Grade</p>
-                    <p className="text-xs text-slate-500 mt-0.5">FDIC insured &amp; audited</p>
+                    <p className="text-sm font-bold text-[#111111]">Bank-Grade</p>
+                    <p className="text-xs text-[#737373] mt-0.5">FDIC insured &amp; audited</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Card Mockup (Phone Banking Visual) */}
+            {/* Right Card Mockup */}
             <div className="lg:col-span-5">
-              <div className="bg-slate-950 text-white rounded-3xl p-8 shadow-2xl border border-slate-800 max-w-md mx-auto">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-                  <span className="text-sm font-bold text-slate-300">Digital Banking Review</span>
-                  <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-full">
+              <div className="bg-[#111111] text-white rounded-3xl p-8 shadow-2xl border border-[#262626] max-w-md mx-auto">
+                <div className="flex items-center justify-between border-b border-[#262626] pb-4 mb-6">
+                  <span className="text-sm font-bold text-[#F3EEE3]">Digital Banking Review</span>
+                  <span className="text-xs font-bold text-[#D9541E] bg-[#D9541E]/15 border border-[#D9541E]/30 px-3 py-1 rounded-full">
                     Audited 2026
                   </span>
                 </div>
                 <div className="space-y-6">
                   <div>
-                    <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Total Balance Tracked</span>
+                    <span className="text-xs text-[#999999] uppercase tracking-wider font-semibold">Total Balance Tracked</span>
                     <p className="text-4xl font-extrabold text-white mt-1.5">$4,280.00</p>
                   </div>
-                  <div className="bg-slate-900/90 rounded-2xl p-5 space-y-3 border border-slate-800">
-                    <div className="flex justify-between text-sm text-slate-300">
+                  <div className="bg-[#181818] rounded-2xl p-5 space-y-3 border border-[#262626]">
+                    <div className="flex justify-between text-sm text-[#E5DFD3]">
                       <span>Multi-Currency Wallet</span>
                       <span className="font-bold text-white">USD / EUR / GBP</span>
                     </div>
-                    <div className="flex justify-between text-sm text-slate-400">
+                    <div className="flex justify-between text-sm text-[#999999]">
                       <span>Instant Transfer Fee</span>
-                      <span className="font-bold text-emerald-400">$0.00</span>
+                      <span className="font-bold text-[#D9541E]">$0.00</span>
                     </div>
-                    <div className="flex justify-between text-sm text-slate-400">
+                    <div className="flex justify-between text-sm text-[#999999]">
                       <span>Annual Percentage Yield</span>
-                      <span className="font-bold text-blue-400">4.85% APY</span>
+                      <span className="font-bold text-white">4.85% APY</span>
                     </div>
                   </div>
                 </div>
@@ -156,13 +157,13 @@ export default function FintechPage() {
       {/* ──────────────── 2. FINTECH CATEGORIES ──────────────── */}
       <section className="container-main">
         <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
             Ecosystem Directory
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
             Explore fintech categories
           </h2>
-          <p className="text-lg text-slate-600 mt-2">
+          <p className="text-lg text-[#4A4A4A] mt-2">
             Detailed teardowns of every major category in financial technology.
           </p>
         </div>
@@ -172,20 +173,20 @@ export default function FintechPage() {
             <Link
               key={cat.slug}
               href={`/fintech#${cat.slug}`}
-              className="group bg-white rounded-3xl border border-slate-200/90 p-7 hover:border-slate-900 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-3xl border border-[#E5DFD3] p-7 hover:border-[#D9541E] hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-900 flex items-center justify-center mb-5 group-hover:bg-slate-950 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[#F3EEE3] text-[#111111] flex items-center justify-center mb-5 group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-300 shadow-2xs">
                   <Smartphone className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-lg font-bold text-[#111111] tracking-tight group-hover:text-[#D9541E] transition-colors">
                   {cat.name}
                 </h3>
-                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                <p className="text-sm text-[#4A4A4A] mt-2 leading-relaxed">
                   {cat.description}
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
+              <div className="mt-6 pt-4 border-t border-[#E5DFD3] flex items-center justify-between text-xs font-bold text-[#111111] group-hover:text-[#D9541E]">
                 <span>Explore</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
@@ -198,13 +199,13 @@ export default function FintechPage() {
       <section className="container-main">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
               In-Depth Explainers
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
               Featured fintech guides
             </h2>
-            <p className="text-lg text-slate-600 mt-2">
+            <p className="text-lg text-[#4A4A4A] mt-2">
               Honest benchmarks, speed tests, and fee comparisons to help you choose.
             </p>
           </div>
@@ -220,13 +221,13 @@ export default function FintechPage() {
       {/* ──────────────── 4. COMPARISON MATRIX HERO CARDS ──────────────── */}
       <section className="container-main">
         <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
             Head-to-Head Benchmarks
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
             Popular app comparisons
           </h2>
-          <p className="text-lg text-slate-600 mt-2">
+          <p className="text-lg text-[#4A4A4A] mt-2">
             Side-by-side analysis of features, fees, transfer speeds, and customer ratings.
           </p>
         </div>
@@ -238,22 +239,22 @@ export default function FintechPage() {
               <Link
                 key={comp.title}
                 href={comp.href}
-                className="group bg-white rounded-3xl border border-slate-200/90 p-8 hover:border-slate-900 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl border border-[#E5DFD3] p-8 hover:border-[#D9541E] hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-slate-100 text-slate-900 flex items-center justify-center mb-6 group-hover:bg-slate-950 group-hover:text-white transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F3EEE3] text-[#111111] flex items-center justify-center mb-6 group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-300 shadow-2xs">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                  <h3 className="text-xl font-bold text-[#111111] tracking-tight group-hover:text-[#D9541E] transition-colors">
                     {comp.title}
                   </h3>
-                  <p className="text-base text-slate-600 mt-3 leading-relaxed">
+                  <p className="text-base text-[#4A4A4A] mt-3 leading-relaxed">
                     {comp.description}
                   </p>
                 </div>
-                <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-sm font-bold text-slate-900">
+                <div className="mt-8 pt-5 border-t border-[#E5DFD3] flex items-center justify-between text-sm font-bold text-[#111111] group-hover:text-[#D9541E]">
                   <span>{comp.linkText}</span>
-                  <span className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-slate-950 group-hover:text-white transition-all duration-200">
+                  <span className="w-8 h-8 rounded-full bg-[#F3EEE3] flex items-center justify-center group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-200">
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
@@ -265,26 +266,10 @@ export default function FintechPage() {
 
       {/* ──────────────── 5. NEWSLETTER STRIP ──────────────── */}
       <section className="container-main">
-        <div className="bg-slate-950 text-white rounded-3xl p-10 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
-          <div className="space-y-4 max-w-xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              The Fintech Dispatch
-            </span>
-            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-              Stay ahead of digital finance trends.
-            </h3>
-            <p className="text-slate-300 text-lg leading-relaxed">
-              Bi-weekly product breakdowns, rate shifts, security advisories, and unbiased fintech ratings delivered straight to your inbox.
-            </p>
-          </div>
-          <Link
-            href="/newsletter"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-slate-950 font-bold text-base rounded-full hover:bg-slate-100 transition-all shadow-md active:scale-95 flex-shrink-0"
-          >
-            <span>Subscribe free</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        <NewsletterStrip
+          title="Stay ahead of digital finance trends."
+          subtitle="Bi-weekly product breakdowns, rate shifts, security advisories, and unbiased fintech ratings delivered straight to your inbox."
+        />
       </section>
     </div>
   );

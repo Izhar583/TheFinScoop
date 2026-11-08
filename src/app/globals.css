@@ -1,44 +1,55 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Clean & Professional Color Palette ── */
-  --color-primary-blue: #0F172A; /* Slate 900 / Deep Midnight */
-  --color-accent-blue: #2563EB;  /* Vibrant Royal Blue */
-  --color-accent-green: #10B981; /* Emerald 500 */
-  --color-light-bg: #F8FAFC;     /* Slate 50 ultra clean */
-  --color-card-border: #E2E8F0;  /* Slate 200 */
-  --color-text-main: #0F172A;    /* Slate 900 */
-  --color-text-body: #475569;    /* Slate 600 - comfortable reading */
-  --color-text-muted: #64748B;   /* Slate 500 */
+  /* ── Expensive & Quiet Luxury Palette (Cream, Ink Black, Burnt Orange) ── */
+  --color-cream-bg: #F3EEE3;
+  --color-cream-surface: #FAF7F2;
+  --color-cream-card: #FFFFFF;
+  --color-cream-border: #E5DFD3;
+  --color-cream-border-subtle: #ECE7DE;
+
+  --color-ink-black: #111111;
+  --color-ink-card: #181818;
+  --color-ink-border: #262626;
+
+  --color-burnt-orange: #D9541E;
+  --color-burnt-orange-hover: #BF4413;
+  --color-burnt-orange-light: #FBF0EB;
+
+  --color-text-main: #111111;
+  --color-text-body: #4A4A4A;
+  --color-text-muted: #737373;
 
   --font-sans: var(--font-inter), Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-/* ── Base Typography Scale: Clean, Large, Professional ── */
+/* ── Base Typography Scale: Clean, Large, Editorial Luxury ── */
 @layer base {
   html {
     scroll-behavior: smooth;
-    color: var(--color-text-main);
-    background-color: #FFFFFF;
+    color: #111111;
+    background-color: #F3EEE3;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     font-family: var(--font-sans);
-    color: var(--color-text-body);
-    font-size: 1.0625rem; /* 17px - comfortable modern readable body size */
+    color: #4A4A4A;
+    background-color: #F3EEE3;
+    font-size: 1.0625rem; /* 17px */
     line-height: 1.65;
     font-weight: 400;
   }
 
-  /* Big, Confident, Modern Headings */
+  /* Big, Confident, Editorial Headings */
   h1 {
     font-size: 2.75rem; /* 44px mobile */
     font-weight: 800;
-    line-height: 1.12;
+    line-height: 1.1;
     letter-spacing: -0.035em;
-    color: var(--color-text-main);
+    color: #111111;
   }
   @media (min-width: 640px) {
     h1 {
@@ -56,7 +67,7 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.025em;
-    color: var(--color-text-main);
+    color: #111111;
   }
   @media (min-width: 768px) {
     h2 {
@@ -69,7 +80,7 @@
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: -0.02em;
-    color: var(--color-text-main);
+    color: #111111;
   }
   @media (min-width: 768px) {
     h3 {
@@ -80,7 +91,7 @@
   p {
     font-size: 1.0625rem; /* 17px */
     line-height: 1.65;
-    color: var(--color-text-body);
+    color: #4A4A4A;
   }
 
   /* Buttons */
@@ -113,18 +124,18 @@
     }
   }
 
-  /* Sleek Minimalist Card */
+  /* Expensive Crisp Card on Cream Canvas */
   .card-premium {
     background-color: #FFFFFF;
-    border: 1px solid var(--color-card-border);
-    border-radius: 1.25rem; /* 20px */
+    border: 1px solid #E5DFD3;
+    border-radius: 1.5rem; /* 24px */
     padding: 2rem;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .card-premium:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
-    border-color: #CBD5E1;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -10px rgba(17, 17, 17, 0.08), 0 2px 6px 0 rgba(217, 84, 30, 0.04);
+    border-color: #D9541E;
   }
 
   /* Modern Pill Badge */

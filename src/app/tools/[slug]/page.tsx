@@ -58,13 +58,13 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const otherTools = TOOLS.filter((t) => t.slug !== slug).slice(0, 3);
 
   return (
-    <div className="py-12 lg:py-20 bg-white min-h-screen">
+    <div className="py-12 lg:py-20 bg-[#F3EEE3] min-h-screen">
       <div className="container-main max-w-5xl">
         {/* Back Link */}
         <div className="mb-8">
           <Link
             href="/tools"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-[#FAF7F2] text-[#111111] hover:text-[#D9541E] border border-[#E5DFD3] text-xs font-bold transition-colors shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Calculators &amp; Tools</span>
@@ -73,14 +73,14 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
         {/* Header */}
         <div className="mb-12 max-w-3xl space-y-3">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            100% Free · Interactive Financial Tool
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D9541E] bg-[#D9541E]/10 border border-[#D9541E]/20 px-3 py-1 rounded-full">
+            <Sparkles className="w-3.5 h-3.5 text-[#D9541E]" />
+            100% Free · Financial Precision Tool
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
             {tool.name}
           </h1>
-          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#4A4A4A] leading-relaxed">
             {tool.description}
           </p>
         </div>
@@ -91,19 +91,19 @@ export default async function ToolPage({ params }: ToolPageProps) {
         </div>
 
         {/* Explore More Tools */}
-        <div className="pt-12 border-t border-slate-200">
+        <div className="pt-12 border-t border-[#E5DFD3]">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
                 Related Tools
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111] mt-1 tracking-tight">
                 Other calculators you might need
               </h2>
             </div>
             <Link
               href="/tools"
-              className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+              className="text-sm font-bold text-[#111111] hover:text-[#D9541E] transition-colors"
             >
               View directory →
             </Link>

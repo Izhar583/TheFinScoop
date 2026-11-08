@@ -5,10 +5,10 @@ import { Rss } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B132B] text-slate-200 pt-20 pb-16 border-t border-slate-800">
+    <footer className="bg-[#111111] text-[#E5DFD3] pt-20 pb-16 border-t border-[#262626]">
       <div className="container-main">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 pb-16 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 pb-16 border-b border-[#262626]">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="inline-block">
@@ -20,7 +20,7 @@ export default function Footer() {
                 className="h-18 w-auto object-contain"
               />
             </Link>
-            <p className="text-base text-slate-300 leading-relaxed max-w-sm">
+            <p className="text-base text-[#999999] leading-relaxed max-w-sm">
               Practical financial knowledge, precision calculation tools, and clear, unbiased fintech guides.
             </p>
             {/* Social Icons */}
@@ -29,7 +29,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800/90 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-[#1E1E1E] flex items-center justify-center text-[#999999] hover:text-white hover:bg-[#D9541E] transition-colors"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800/90 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-[#1E1E1E] flex items-center justify-center text-[#999999] hover:text-white hover:bg-[#D9541E] transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800/90 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-[#1E1E1E] flex items-center justify-center text-[#999999] hover:text-white hover:bg-[#D9541E] transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800/90 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-[#1E1E1E] flex items-center justify-center text-[#999999] hover:text-white hover:bg-[#D9541E] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ export default function Footer() {
               </a>
               <a
                 href="/rss.xml"
-                className="w-10 h-10 rounded-full bg-slate-800/90 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-[#1E1E1E] flex items-center justify-center text-[#999999] hover:text-white hover:bg-[#D9541E] transition-colors"
                 aria-label="RSS Feed"
               >
                 <Rss className="w-4 h-4" />
@@ -81,11 +81,11 @@ export default function Footer() {
 
           {/* Explore Column */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Explore</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#F3EEE3]">Explore</h4>
             <ul className="space-y-3 text-base">
               {FOOTER_LINKS.explore.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[#999999] hover:text-[#D9541E] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -95,11 +95,11 @@ export default function Footer() {
 
           {/* TheFinScoop Column */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">TheFinScoop</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#F3EEE3]">TheFinScoop</h4>
             <ul className="space-y-3 text-base">
               {FOOTER_LINKS.thefinscoop.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[#999999] hover:text-[#D9541E] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -109,11 +109,11 @@ export default function Footer() {
 
           {/* Editorial Column */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Editorial</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#F3EEE3]">Editorial</h4>
             <ul className="space-y-3 text-base">
               {FOOTER_LINKS.editorial.map((item, index) => (
                 <li key={`${item.label}-${index}`}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[#999999] hover:text-[#D9541E] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -123,11 +123,11 @@ export default function Footer() {
 
           {/* Legal Column */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Legal</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#F3EEE3]">Legal</h4>
             <ul className="space-y-3 text-base">
               {FOOTER_LINKS.legal.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[#999999] hover:text-[#D9541E] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -137,10 +137,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-400 gap-4">
+        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-sm text-[#737373] gap-4">
           <p>© 2026 {SITE_NAME}. All rights reserved.</p>
-          <p className="text-slate-400 font-medium">
-            Better financial decisions start with better information.
+          <p className="text-[#737373] font-medium">
+            Better financial decisions start with <span className="text-[#D9541E]">better information</span>.
           </p>
         </div>
       </div>

@@ -21,20 +21,20 @@ export default function LearnPage() {
   const popularTools = TOOLS.slice(0, 3);
 
   return (
-    <div className="space-y-24 pb-28">
+    <div className="space-y-24 pb-28 bg-[#F3EEE3]">
       {/* ──────────────── 1. HERO ──────────────── */}
-      <section className="bg-white border-b border-slate-100 pt-12 pb-16 lg:pt-20 lg:pb-24">
+      <section className="border-b border-[#E5DFD3] pt-12 pb-16 lg:pt-20 lg:pb-24">
         <div className="container-main max-w-4xl text-center mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold tracking-wider text-slate-800 uppercase mx-auto">
-            <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D9541E]/10 border border-[#D9541E]/20 text-xs font-bold tracking-wider text-[#D9541E] uppercase mx-auto">
+            <BookOpen className="w-3.5 h-3.5 text-[#D9541E]" />
             Financial Education &amp; Guides
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-            Make smarter decisions with your money.
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#111111] tracking-tight leading-[1.15]">
+            Make smarter decisions with <span className="italic font-serif font-normal text-[#D9541E]">your money.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed">
             Practical financial knowledge, step-by-step frameworks, and unbiased analysis to help you build lasting wealth.
           </p>
 
@@ -51,13 +51,13 @@ export default function LearnPage() {
       <section className="container-main">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
               Editor&apos;s Picks
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
               Worth understanding
             </h2>
-            <p className="text-lg text-slate-600 mt-2">
+            <p className="text-lg text-[#4A4A4A] mt-2">
               Essential deep-dives handpicked by our editorial team.
             </p>
           </div>
@@ -73,13 +73,13 @@ export default function LearnPage() {
       {/* ──────────────── 3. TOPIC CATEGORIES ──────────────── */}
       <section className="container-main">
         <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
             Core Curricula
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
             Explore what matters to your money
           </h2>
-          <p className="text-lg text-slate-600 mt-2">
+          <p className="text-lg text-[#4A4A4A] mt-2">
             Structured resources and actionable strategies across every domain of personal finance.
           </p>
         </div>
@@ -102,19 +102,19 @@ export default function LearnPage() {
       <section className="container-main">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
               Interactive Planners
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
               Companion tools &amp; calculators
             </h2>
-            <p className="text-lg text-slate-600 mt-2">
+            <p className="text-lg text-[#4A4A4A] mt-2">
               Put the concepts into practice with our free interactive calculators.
             </p>
           </div>
           <Link
             href="/tools"
-            className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#111111] hover:text-[#D9541E] transition-colors"
           >
             <span>View all 6 calculators</span>
             <ArrowRight className="w-4 h-4" />
@@ -131,13 +131,13 @@ export default function LearnPage() {
       {/* ──────────────── 5. LATEST ARTICLES ──────────────── */}
       <section className="container-main">
         <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
             Fresh Insights
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2 tracking-tight">
             Latest analysis &amp; guides
           </h2>
-          <p className="text-lg text-slate-600 mt-2">
+          <p className="text-lg text-[#4A4A4A] mt-2">
             Updated weekly with data-backed breakdowns of financial news and trends.
           </p>
         </div>
@@ -153,7 +153,7 @@ export default function LearnPage() {
       <section className="container-main">
         <NewsletterStrip
           title="The weekly scoop on smart money."
-          subtitle="Join 250,000+ readers. Concise analysis, calculator updates, and zero spam."
+          subtitle="Join 2,000+ readers. Concise analysis, calculator updates, and zero spam."
         />
       </section>
     </div>

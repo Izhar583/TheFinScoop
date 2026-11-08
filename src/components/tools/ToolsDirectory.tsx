@@ -33,10 +33,10 @@ export default function ToolsDirectory({ tools, categories }: ToolsDirectoryProp
         <button
           type="button"
           onClick={() => setSelectedCategory("all")}
-          className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
+          className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-2xs ${
             selectedCategory === "all"
-              ? "bg-slate-950 text-white shadow-sm"
-              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              ? "bg-[#D9541E] text-white shadow-sm"
+              : "bg-white text-[#111111] hover:bg-[#F3EEE3] border border-[#E5DFD3]"
           }`}
         >
           All Calculators ({tools.length})
@@ -48,10 +48,10 @@ export default function ToolsDirectory({ tools, categories }: ToolsDirectoryProp
               key={cat.slug}
               type="button"
               onClick={() => setSelectedCategory(cat.slug)}
-              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-2xs ${
                 selectedCategory === cat.slug
-                  ? "bg-slate-950 text-white shadow-sm"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[#D9541E] text-white shadow-sm"
+                  : "bg-white text-[#111111] hover:bg-[#F3EEE3] border border-[#E5DFD3]"
               }`}
             >
               {cat.name} ({count})
