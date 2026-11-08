@@ -18,7 +18,9 @@ import {
   ShieldCheck,
   CheckCircle2,
   Clock,
-  ArrowUpRight
+  ArrowUpRight,
+  Calculator,
+  Users
 } from "lucide-react";
 import { calculateCompoundInterest } from "@/lib/calculators";
 import { formatCurrency, formatPercentage } from "@/lib/utils";
@@ -131,29 +133,83 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ──────────────── 2. METRICS & TRUST STATS (INK BLACK LUXURY BAND) ──────────────── */}
-      <section className="bg-[#111111] text-[#E5DFD3] py-12 sm:py-16 lg:py-20 border-y border-[#262626]">
-        <div className="container-main px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
-            <div className="space-y-1.5 sm:space-y-2 border-b sm:border-b-0 border-[#262626] pb-4 sm:pb-0">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">6+</p>
-              <p className="text-sm sm:text-base font-bold text-[#F3EEE3]">Free Calculators</p>
-              <p className="text-xs sm:text-sm text-[#999999]">Zero signup, zero paywalls</p>
+      {/* ──────────────── 2. METRICS & TRUST STATS (FLOATING LUXURY ISLAND) ──────────────── */}
+      <section className="container-main px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[#111111] text-[#E5DFD3] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl border border-[#262626]">
+          {/* Subtle Ambient Radial Glows */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#D9541E]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#D9541E]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Micro-Grid Texture */}
+          <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+
+          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-0 lg:divide-x lg:divide-[#262626]">
+            {/* Stat 1: Calculators */}
+            <div className="space-y-3 lg:px-8 first:pl-0">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <Calculator className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
+                  Interactive
+                </span>
+              </div>
+              <div>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">6+</p>
+                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Free Calculators</p>
+                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Zero signup, zero paywalls</p>
+              </div>
             </div>
-            <div className="space-y-1.5 sm:space-y-2 border-b sm:border-b-0 border-[#262626] pb-4 sm:pb-0 sm:border-l sm:border-[#262626] sm:pl-6 lg:pl-8">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">2K+</p>
-              <p className="text-sm sm:text-base font-bold text-[#F3EEE3]">Active Readers</p>
-              <p className="text-xs sm:text-sm text-[#999999]">Trust our weekly insights</p>
+
+            {/* Stat 2: Active Readers */}
+            <div className="space-y-3 lg:px-8">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <Users className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
+                  Community
+                </span>
+              </div>
+              <div>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">2K+</p>
+                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Active Readers</p>
+                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Trust our weekly insights</p>
+              </div>
             </div>
-            <div className="space-y-1.5 sm:space-y-2 pt-2 sm:pt-0 sm:border-l sm:border-[#262626] sm:pl-6 lg:pl-8">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#D9541E] tracking-tight">100%</p>
-              <p className="text-sm sm:text-base font-bold text-[#F3EEE3]">Editorial Independence</p>
-              <p className="text-xs sm:text-sm text-[#999999]">No sponsored bias</p>
+
+            {/* Stat 3: Editorial Independence */}
+            <div className="space-y-3 lg:px-8">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-[#D9541E]/15 border border-[#D9541E]/30 flex items-center justify-center text-[#D9541E]">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#D9541E]">
+                  Verified
+                </span>
+              </div>
+              <div>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#D9541E] tracking-tight">100%</p>
+                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Editorial Independence</p>
+                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Zero sponsored bias</p>
+              </div>
             </div>
-            <div className="space-y-1.5 sm:space-y-2 pt-2 sm:pt-0 sm:border-l sm:border-[#262626] sm:pl-6 lg:pl-8">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$10M+</p>
-              <p className="text-sm sm:text-base font-bold text-[#F3EEE3]">Savings Modeled</p>
-              <p className="text-xs sm:text-sm text-[#999999]">By our user community</p>
+
+            {/* Stat 4: Savings Modeled */}
+            <div className="space-y-3 lg:px-8 last:pr-0">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
+                  Impact
+                </span>
+              </div>
+              <div>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$10M+</p>
+                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Savings Modeled</p>
+                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">By our user community</p>
+              </div>
             </div>
           </div>
         </div>
