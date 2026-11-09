@@ -5,12 +5,12 @@ import { Rss } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-[#E5DFD3] pt-20 pb-16 border-t border-[#262626]">
+    <footer className="bg-[#111111] text-[#E5DFD3] pt-12 sm:pt-20 pb-12 sm:pb-16 border-t border-[#262626]">
       <div className="container-main">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 pb-16 border-b border-[#262626]">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-[#262626]">
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="col-span-2 md:col-span-2 lg:col-span-2 space-y-5">
             <Link href="/" className="inline-block">
               <Image
                 src="/whitelogo.png"

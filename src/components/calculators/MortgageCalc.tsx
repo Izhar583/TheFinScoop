@@ -26,7 +26,7 @@ export default function MortgageCalc() {
 
   return (
     <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden">
-      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
+      <div className="p-4 sm:p-8 md:p-10 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start">
         {/* Inputs (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -108,7 +108,7 @@ export default function MortgageCalc() {
           </div>
 
           {/* Taxes & Insurance */}
-          <div className="p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] space-y-4">
+          <div className="p-4 sm:p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-[#737373] block">
               Estimated Escrow (Taxes &amp; Insurance)
             </span>
@@ -150,13 +150,13 @@ export default function MortgageCalc() {
         </div>
 
         {/* Results Panel */}
-        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9541E]">
               Total Monthly Housing Payment
             </span>
             <div className="mt-3">
-              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight break-words">
                 {formatCurrency(result.monthlyPayment)}
                 <span className="text-base font-normal text-[#888888]"> /mo</span>
               </p>

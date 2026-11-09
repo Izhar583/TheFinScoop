@@ -41,7 +41,7 @@ export default function Navbar() {
               alt="TheFinScoop - Make money make sense"
               width={200}
               height={60}
-              className="h-28 sm:h-16 w-auto object-contain"
+              className="h-10 sm:h-14 lg:h-16 w-auto object-contain"
               priority
             />
           </Link>
@@ -161,7 +161,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#E5DFD3] bg-[#F3EEE3] shadow-xl animate-in fade-in duration-200">
+        <div className="lg:hidden border-t border-[#E5DFD3] bg-[#F3EEE3] shadow-xl animate-in fade-in duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
           <div className="container-main py-6 space-y-3">
             {NAV_ITEMS.map((item) => (
               <div key={item.label} className="border-b border-[#E5DFD3]/80 pb-2">

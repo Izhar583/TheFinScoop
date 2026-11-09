@@ -25,14 +25,14 @@ export default function NewsletterStrip({
   };
 
   return (
-    <div className={`bg-[#111111] text-white rounded-3xl p-10 sm:p-14 shadow-xl border border-[#262626] ${className}`}>
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        <div className="space-y-4">
+    <div className={`bg-[#111111] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-xl border border-[#262626] ${className}`}>
+      <div className="grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
+        <div className="space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E1E1E] border border-[#333333] text-xs font-bold uppercase tracking-wider text-[#D9541E]">
             <Mail className="w-3.5 h-3.5" />
             <span>Weekly Newsletter</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F3EEE3] leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F3EEE3] leading-tight">
             {title}
           </h2>
           <p className="text-base sm:text-lg text-[#999999] leading-relaxed max-w-md">

@@ -71,17 +71,17 @@ export default function DebtPayoffCalc() {
   return (
     <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-sm overflow-hidden">
       {/* Strategy Switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-8 py-5 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-4 sm:px-8 py-4 sm:py-5 gap-4">
         <div className="flex items-center gap-2">
           <CreditCard className="w-5 h-5 text-[#D9541E]" />
           <span className="font-bold text-[#111111] text-base">Payoff Methodology</span>
         </div>
 
-        <div className="inline-flex rounded-full bg-[#E5DFD3]/60 p-1">
+        <div className="inline-flex flex-col sm:flex-row rounded-2xl sm:rounded-full bg-[#E5DFD3]/60 p-1 w-full sm:w-auto">
           <button
             type="button"
             onClick={() => setStrategy("avalanche")}
-            className={`px-5 py-2 text-xs font-bold rounded-full transition-all ${
+            className={`px-4 sm:px-5 py-2 text-xs font-bold rounded-xl sm:rounded-full transition-all text-center ${
               strategy === "avalanche"
                 ? "bg-[#D9541E] text-white shadow-sm"
                 : "text-[#737373] hover:text-[#111111]"
@@ -92,7 +92,7 @@ export default function DebtPayoffCalc() {
           <button
             type="button"
             onClick={() => setStrategy("snowball")}
-            className={`px-5 py-2 text-xs font-bold rounded-full transition-all ${
+            className={`px-4 sm:px-5 py-2 text-xs font-bold rounded-xl sm:rounded-full transition-all text-center ${
               strategy === "snowball"
                 ? "bg-[#D9541E] text-white shadow-sm"
                 : "text-[#737373] hover:text-[#111111]"
@@ -103,16 +103,16 @@ export default function DebtPayoffCalc() {
         </div>
       </div>
 
-      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
+      <div className="p-4 sm:p-8 md:p-10 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start">
         {/* Left Form: Debts Management (7 cols) */}
-        <div className="lg:col-span-7 space-y-8">
+        <div className="lg:col-span-7 space-y-6 sm:space-y-8">
           {/* Extra Monthly Payment */}
-          <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#E5DFD3] space-y-4">
+          <div className="bg-[#FAF7F2] p-4 sm:p-6 rounded-2xl border border-[#E5DFD3] space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <label className="text-sm font-bold text-[#111111]">
                 Extra Monthly Payment
               </label>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {[100, 200, 300, 500].map((amt) => (
                   <button
                     key={amt}
@@ -246,13 +246,13 @@ export default function DebtPayoffCalc() {
         </div>
 
         {/* Right Panel: Results & Timeline (5 cols) */}
-        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 shadow-2xl border border-[#262626] space-y-6">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-5 sm:p-8 shadow-2xl border border-[#262626] space-y-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#888888]">
               Projected Debt Freedom
             </span>
             <div className="mt-2 flex items-baseline gap-3">
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-white">
                 {result.payoffDate}
               </h3>
             </div>

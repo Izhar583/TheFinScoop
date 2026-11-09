@@ -38,11 +38,11 @@ export default function CompoundInterestCalc() {
   return (
     <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden">
       {/* Top Bar / Tabs */}
-      <div className="flex items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-8 py-5">
-        <div className="flex gap-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-4 sm:px-8 py-4 sm:py-5 gap-3">
+        <div className="flex gap-4 sm:gap-8 overflow-x-auto w-full sm:w-auto">
           <button
             onClick={() => setActiveTab("basic")}
-            className={`pb-2 text-base font-bold border-b-2 transition-all ${
+            className={`pb-2 text-sm sm:text-base font-bold border-b-2 transition-all whitespace-nowrap ${
               activeTab === "basic"
                 ? "border-[#D9541E] text-[#111111]"
                 : "border-transparent text-[#737373] hover:text-[#111111]"
@@ -52,7 +52,7 @@ export default function CompoundInterestCalc() {
           </button>
           <button
             onClick={() => setActiveTab("advanced")}
-            className={`pb-2 text-base font-bold border-b-2 transition-all ${
+            className={`pb-2 text-sm sm:text-base font-bold border-b-2 transition-all whitespace-nowrap ${
               activeTab === "advanced"
                 ? "border-[#D9541E] text-[#111111]"
                 : "border-transparent text-[#737373] hover:text-[#111111]"
@@ -64,14 +64,14 @@ export default function CompoundInterestCalc() {
 
         <button
           onClick={() => setShowChart(!showChart)}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E5DFD3] text-xs font-bold text-[#111111] hover:border-[#D9541E]/40 shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-white border border-[#E5DFD3] text-xs font-bold text-[#111111] hover:border-[#D9541E]/40 shadow-xs transition-colors self-start sm:self-auto"
         >
           <BarChart2 className="w-3.5 h-3.5 text-[#D9541E]" />
           <span>{showChart ? "Hide Graph" : "Show Growth Graph"}</span>
         </button>
       </div>
 
-      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
+      <div className="p-4 sm:p-8 md:p-10 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start">
         {/* Form Inputs (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -259,13 +259,13 @@ export default function CompoundInterestCalc() {
         </div>
 
         {/* Results Panel (5 cols) */}
-        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-8">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6 sm:space-y-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9541E]">
               Projected Portfolio Value
             </span>
             <div className="mt-3">
-              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight break-words">
                 {formatCurrency(result.totalValue)}
               </p>
               <p className="text-sm text-[#888888] mt-1">

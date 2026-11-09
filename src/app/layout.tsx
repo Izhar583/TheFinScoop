@@ -52,6 +52,19 @@ export const metadata: Metadata = {
     creator: "@thefinscoop",
     images: ["/og-image.png"],
   },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -61,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-white text-gray-900 min-h-screen flex flex-col selection:bg-brand-navy selection:text-white">
+      <body className="font-sans antialiased bg-[#F3EEE3] text-[#111111] min-h-screen flex flex-col selection:bg-[#D9541E] selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

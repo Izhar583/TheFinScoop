@@ -45,7 +45,7 @@ export default function BudgetPlannerCalc() {
 
   return (
     <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden">
-      <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
+      <div className="p-4 sm:p-8 md:p-10 grid lg:grid-cols-12 gap-8 sm:gap-10 items-start">
         {/* Expenses List & Income (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Monthly Income */}
@@ -140,13 +140,13 @@ export default function BudgetPlannerCalc() {
         </div>
 
         {/* Results Panel */}
-        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-5 sm:p-8 md:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9541E]">
               Monthly Free Cash Flow (Surplus)
             </span>
             <div className="mt-3">
-              <p className={`text-4xl sm:text-5xl font-black tracking-tight ${
+              <p className={`text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight break-words ${
                 result.surplus >= 0 ? "text-white" : "text-rose-400"
               }`}>
                 {formatCurrency(result.surplus)}

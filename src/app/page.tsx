@@ -83,7 +83,7 @@ export default function HomePage() {
                     type="text"
                     name="q"
                     placeholder="Search calculators (e.g. loan, mortgage, savings)..."
-                    className="w-full pl-2.5 sm:pl-3 pr-20 sm:pr-28 py-2.5 sm:py-3 text-xs sm:text-base text-[#111111] placeholder-[#737373] bg-transparent focus:outline-none"
+                    className="w-full pl-2.5 sm:pl-3 pr-20 sm:pr-28 py-2.5 sm:py-3 text-xs sm:text-base text-[#111111] placeholder-[#737373] placeholder:truncate bg-transparent focus:outline-none"
                   />
                   <button
                     type="submit"
@@ -135,7 +135,7 @@ export default function HomePage() {
 
       {/* ──────────────── 2. METRICS & TRUST STATS (FLOATING LUXURY ISLAND) ──────────────── */}
       <section className="container-main px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="relative rounded-2xl sm:rounded-3xl bg-[#111111] text-[#E5DFD3] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl border border-[#262626]">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[#111111] text-[#E5DFD3] p-5 sm:p-10 lg:p-12 overflow-hidden shadow-2xl border border-[#262626]">
           {/* Subtle Ambient Radial Glows */}
           <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#D9541E]/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#D9541E]/10 rounded-full blur-3xl pointer-events-none" />
@@ -143,72 +143,72 @@ export default function HomePage() {
           {/* Micro-Grid Texture */}
           <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
-          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-0 lg:divide-x lg:divide-[#262626]">
+          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-0 lg:divide-x lg:divide-[#262626]">
             {/* Stat 1: Calculators */}
-            <div className="space-y-3 lg:px-8 first:pl-0">
+            <div className="space-y-2.5 sm:space-y-3 lg:px-8 first:pl-0">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
-                  <Calculator className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
                   Interactive
                 </span>
               </div>
               <div>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">6+</p>
-                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Free Calculators</p>
-                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Zero signup, zero paywalls</p>
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">6+</p>
+                <p className="text-xs sm:text-base font-bold text-[#F3EEE3] mt-1">Free Calculators</p>
+                <p className="text-[11px] sm:text-sm text-[#888888] mt-0.5">Zero signup, zero paywalls</p>
               </div>
             </div>
 
             {/* Stat 2: Active Readers */}
-            <div className="space-y-3 lg:px-8">
+            <div className="space-y-2.5 sm:space-y-3 lg:px-8">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
-                  <Users className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
                   Community
                 </span>
               </div>
               <div>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">2K+</p>
-                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Active Readers</p>
-                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Trust our weekly insights</p>
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">2K+</p>
+                <p className="text-xs sm:text-base font-bold text-[#F3EEE3] mt-1">Active Readers</p>
+                <p className="text-[11px] sm:text-sm text-[#888888] mt-0.5">Trust our weekly insights</p>
               </div>
             </div>
 
             {/* Stat 3: Editorial Independence */}
-            <div className="space-y-3 lg:px-8">
+            <div className="space-y-2.5 sm:space-y-3 lg:px-8">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#D9541E]/15 border border-[#D9541E]/30 flex items-center justify-center text-[#D9541E]">
-                  <ShieldCheck className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#D9541E]/15 border border-[#D9541E]/30 flex items-center justify-center text-[#D9541E]">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#D9541E]">
                   Verified
                 </span>
               </div>
               <div>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#D9541E] tracking-tight">100%</p>
-                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Editorial Independence</p>
-                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">Zero sponsored bias</p>
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#D9541E] tracking-tight">100%</p>
+                <p className="text-xs sm:text-base font-bold text-[#F3EEE3] mt-1">Editorial Independence</p>
+                <p className="text-[11px] sm:text-sm text-[#888888] mt-0.5">Zero sponsored bias</p>
               </div>
             </div>
 
             {/* Stat 4: Savings Modeled */}
-            <div className="space-y-3 lg:px-8 last:pr-0">
+            <div className="space-y-2.5 sm:space-y-3 lg:px-8 last:pr-0">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
-                  <TrendingUp className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#D9541E]">
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#737373]">
                   Impact
                 </span>
               </div>
               <div>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$10M+</p>
-                <p className="text-sm sm:text-base font-bold text-[#F3EEE3] mt-1">Savings Modeled</p>
-                <p className="text-xs sm:text-sm text-[#888888] mt-0.5">By our user community</p>
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">$10M+</p>
+                <p className="text-xs sm:text-base font-bold text-[#F3EEE3] mt-1">Savings Modeled</p>
+                <p className="text-[11px] sm:text-sm text-[#888888] mt-0.5">By our user community</p>
               </div>
             </div>
           </div>
@@ -429,9 +429,9 @@ export default function HomePage() {
         </div>
 
         {/* Modern Card Shell */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden p-5 sm:p-8 lg:p-10">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden p-4 sm:p-8 lg:p-10">
           {/* Segmented Control */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] pb-5 sm:pb-6 mb-6 sm:mb-8 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] pb-4 sm:pb-6 mb-6 sm:mb-8 gap-3">
             <div className="grid grid-cols-2 sm:inline-flex p-1 rounded-xl bg-[#F3EEE3] border border-[#E5DFD3] w-full sm:w-auto">
               <button
                 type="button"
@@ -576,7 +576,7 @@ export default function HomePage() {
                     <span className="text-xs font-bold uppercase tracking-wider text-[#737373]">
                       Growth Horizon ({investmentPeriod} Years)
                     </span>
-                    <div className="flex items-center gap-4 text-xs font-semibold">
+                    <div className="flex items-center gap-3 sm:gap-4 text-xs font-semibold flex-wrap">
                       <span className="flex items-center gap-1.5 text-[#737373]">
                         <span className="w-2.5 h-2.5 rounded-full bg-[#E5DFD3] inline-block" /> Contributions
                       </span>
@@ -587,7 +587,7 @@ export default function HomePage() {
                   </div>
                   <div className="h-44 sm:h-52 w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                      <AreaChart data={result.yearlyBreakdown} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+                      <AreaChart data={result.yearlyBreakdown} margin={{ top: 10, right: 8, left: -16, bottom: 0 }}>
                         <defs>
                           <linearGradient id="chartBalance" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="#D9541E" stopOpacity={0.35} />
@@ -639,12 +639,12 @@ export default function HomePage() {
             </div>
 
             {/* Right Results Card (Ink Black Luxury Card) */}
-            <div className="lg:col-span-5 bg-[#111111] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-9 shadow-xl border border-[#262626] flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-5 bg-[#111111] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-9 shadow-xl border border-[#262626] flex flex-col justify-between space-y-6">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-[#999999]">
                   Estimated Future Value
                 </p>
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-2 tracking-tight break-words">
+                <p className="text-2xl sm:text-4xl lg:text-5xl font-black text-white mt-2 tracking-tight break-words">
                   {formatCurrency(result.totalValue)}
                 </p>
                 <p className="text-xs sm:text-sm text-[#999999] mt-1">

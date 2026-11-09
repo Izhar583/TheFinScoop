@@ -14,14 +14,14 @@ export default function NotFound() {
   ];
 
   return (
-    <div className="container-main py-20">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
+    <div className="container-main py-12 sm:py-20">
+      <div className="grid md:grid-cols-2 gap-10 sm:gap-16 items-center">
         {/* Left */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-[#D9541E] mb-4">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#D9541E] mb-3 sm:mb-4">
             Error 404
           </p>
-          <h1 className="text-[100px] sm:text-[120px] font-black text-[#111111] leading-none mb-4 tracking-tighter">
+          <h1 className="text-[72px] sm:text-[120px] font-black text-[#111111] leading-none mb-4 tracking-tighter">
             404
           </h1>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111] mb-3">
