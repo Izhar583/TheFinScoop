@@ -19,20 +19,20 @@ export default function HeroSection({
   rightElement,
 }: HeroSectionProps) {
   return (
-    <section className="bg-gradient-to-b from-[#13284c] to-[#0e1e38] text-white py-16 md:py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="bg-[#F3EEE3] text-[#111111] py-16 md:py-24 relative overflow-hidden border-b border-[#E5DFD3]/80">
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9541E]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             {badge && (
-              <span className="inline-block text-xs font-bold tracking-widest uppercase text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1 rounded-full">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#D9541E] bg-[#D9541E]/10 border border-[#D9541E]/20 px-3.5 py-1.5 rounded-full">
                 {badge}
               </span>
             )}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#111111] tracking-tight leading-[1.12]">
               {title}
             </h1>
-            <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            <p className="text-[#4A4A4A] text-base sm:text-lg max-w-xl leading-relaxed">
               {subtitle}
             </p>
 

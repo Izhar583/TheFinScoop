@@ -48,47 +48,47 @@ export default function ComparisonTable({
   items = DEFAULT_BANK_COMPARISON,
 }: ComparisonTableProps) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs my-8">
+    <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E5DFD3] overflow-hidden shadow-sm my-8">
       {title && (
-        <div className="px-6 py-4 bg-gray-50/70 border-b border-gray-100 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-gray-900 tracking-tight">{title}</h3>
-          <span className="text-[11px] font-semibold text-blue-600">Updated for 2026</span>
+        <div className="px-6 py-4 bg-[#FAF7F2] border-b border-[#E5DFD3] flex items-center justify-between">
+          <h3 className="text-sm font-bold text-[#111111] tracking-tight">{title}</h3>
+          <span className="text-[11px] font-bold text-[#D9541E] uppercase tracking-wider">Updated for 2026</span>
         </div>
       )}
       
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs sm:text-sm">
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50 text-gray-600 font-semibold uppercase tracking-wider text-[11px]">
+            <tr className="border-b border-[#E5DFD3] bg-[#FAF7F2] text-[#737373] font-bold uppercase tracking-wider text-[11px]">
               <th className="py-3.5 px-4 sm:px-6">Bank / Platform</th>
               <th className="py-3.5 px-4 sm:px-6">Monthly Fee</th>
               <th className="py-3.5 px-4 sm:px-6">Key Features</th>
               <th className="py-3.5 px-4 sm:px-6">Best For</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
+          <tbody className="divide-y divide-[#E5DFD3]">
             {items.map((item, idx) => (
               <tr 
                 key={idx} 
-                className={`hover:bg-blue-50/30 transition-colors ${
-                  item.recommended ? "bg-emerald-50/20" : ""
+                className={`hover:bg-[#FAF7F2] transition-colors ${
+                  item.recommended ? "bg-[#D9541E]/5" : ""
                 }`}
               >
-                <td className="py-4 px-4 sm:px-6 font-bold text-gray-900 flex items-center gap-2">
+                <td className="py-4 px-4 sm:px-6 font-bold text-[#111111] flex items-center gap-2">
                   <span>{item.name}</span>
                   {item.recommended && (
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-[#D9541E] text-white px-2.5 py-0.5 rounded-full shadow-xs">
                       Top Pick
                     </span>
                   )}
                 </td>
-                <td className="py-4 px-4 sm:px-6 font-semibold text-gray-800">
+                <td className="py-4 px-4 sm:px-6 font-semibold text-[#111111]">
                   {item.monthlyFee}
                 </td>
-                <td className="py-4 px-4 sm:px-6 text-gray-600 leading-relaxed">
+                <td className="py-4 px-4 sm:px-6 text-[#4A4A4A] leading-relaxed">
                   {item.keyFeatures}
                 </td>
-                <td className="py-4 px-4 sm:px-6 font-medium text-gray-700">
+                <td className="py-4 px-4 sm:px-6 font-medium text-[#4A4A4A]">
                   {item.bestFor}
                 </td>
               </tr>

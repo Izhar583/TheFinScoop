@@ -18,19 +18,19 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center font-semibold rounded-lg transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center font-bold rounded-full transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
 
   const sizeClasses = {
-    sm: "px-3.5 py-1.5 text-xs",
-    md: "px-5 py-2.5 text-sm",
-    lg: "px-6 py-3.5 text-base",
+    sm: "px-4 py-2 text-xs",
+    md: "px-6 py-2.5 text-sm",
+    lg: "px-8 py-3.5 text-base",
   };
 
   const variantClasses = {
-    primary: "bg-[#1D3A6E] hover:bg-[#152a50] text-white shadow-sm hover:shadow",
-    secondary: "bg-[#E8F0FE] hover:bg-blue-100 text-[#1D3A6E]",
-    outline: "border border-gray-200 bg-white hover:bg-gray-50 text-gray-800",
-    accent: "bg-[#22C55E] hover:bg-[#16a34a] text-white shadow-sm hover:shadow",
+    primary: "bg-[#D9541E] hover:bg-[#BF4413] text-white shadow-sm hover:shadow-md",
+    secondary: "bg-[#111111] hover:bg-[#262626] text-[#F3EEE3] shadow-sm",
+    outline: "border border-[#E5DFD3] bg-white hover:bg-[#F3EEE3] text-[#111111]",
+    accent: "bg-[#D9541E] hover:bg-[#BF4413] text-white shadow-sm hover:shadow-md",
   };
 
   const combinedClasses = cn(

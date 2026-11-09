@@ -13,12 +13,12 @@ export default function Badge({
   className,
 }: BadgeProps) {
   const variantClasses = {
-    green: "bg-green-50 text-green-700 border-green-200",
-    blue: "bg-blue-50 text-blue-700 border-blue-200",
-    orange: "bg-amber-50 text-amber-800 border-amber-200",
-    purple: "bg-purple-50 text-purple-700 border-purple-200",
-    cyan: "bg-cyan-50 text-cyan-800 border-cyan-200",
-    gray: "bg-gray-100 text-gray-700 border-gray-200",
+    green: "bg-emerald-50 text-emerald-800 border-emerald-200",
+    blue: "bg-[#D9541E]/10 text-[#D9541E] border-[#D9541E]/20",
+    orange: "bg-[#D9541E]/15 text-[#D9541E] border-[#D9541E]/30",
+    purple: "bg-[#111111]/5 text-[#111111] border-[#E5DFD3]",
+    cyan: "bg-[#FAF7F2] text-[#111111] border-[#E5DFD3]",
+    gray: "bg-[#F3EEE3] text-[#4A4A4A] border-[#E5DFD3]",
   };
 
   return (

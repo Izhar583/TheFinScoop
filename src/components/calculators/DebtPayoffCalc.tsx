@@ -69,22 +69,22 @@ export default function DebtPayoffCalc() {
   const totalMinPayment = debts.reduce((sum, d) => sum + d.minimumPayment, 0);
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+    <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-sm overflow-hidden">
       {/* Strategy Switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 bg-slate-50/80 px-8 py-5 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-8 py-5 gap-4">
         <div className="flex items-center gap-2">
-          <CreditCard className="w-5 h-5 text-slate-800" />
-          <span className="font-bold text-slate-900 text-base">Payoff Methodology</span>
+          <CreditCard className="w-5 h-5 text-[#D9541E]" />
+          <span className="font-bold text-[#111111] text-base">Payoff Methodology</span>
         </div>
 
-        <div className="inline-flex rounded-full bg-slate-200/70 p-1">
+        <div className="inline-flex rounded-full bg-[#E5DFD3]/60 p-1">
           <button
             type="button"
             onClick={() => setStrategy("avalanche")}
             className={`px-5 py-2 text-xs font-bold rounded-full transition-all ${
               strategy === "avalanche"
-                ? "bg-slate-950 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
+                ? "bg-[#D9541E] text-white shadow-sm"
+                : "text-[#737373] hover:text-[#111111]"
             }`}
           >
             Debt Avalanche (Lowest Interest Cost)
@@ -94,8 +94,8 @@ export default function DebtPayoffCalc() {
             onClick={() => setStrategy("snowball")}
             className={`px-5 py-2 text-xs font-bold rounded-full transition-all ${
               strategy === "snowball"
-                ? "bg-slate-950 text-white shadow-sm"
-                : "text-slate-600 hover:text-slate-900"
+                ? "bg-[#D9541E] text-white shadow-sm"
+                : "text-[#737373] hover:text-[#111111]"
             }`}
           >
             Debt Snowball (Fastest Wins)
@@ -107,9 +107,9 @@ export default function DebtPayoffCalc() {
         {/* Left Form: Debts Management (7 cols) */}
         <div className="lg:col-span-7 space-y-8">
           {/* Extra Monthly Payment */}
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 space-y-4">
+          <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#E5DFD3] space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <label className="text-sm font-bold text-slate-900">
+              <label className="text-sm font-bold text-[#111111]">
                 Extra Monthly Payment
               </label>
               <div className="flex gap-2">
@@ -120,8 +120,8 @@ export default function DebtPayoffCalc() {
                     onClick={() => setExtraPayment(amt)}
                     className={`px-3 py-1 rounded-full text-xs font-bold border transition-colors ${
                       extraPayment === amt
-                        ? "bg-slate-950 text-white border-slate-950"
-                        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100"
+                        ? "bg-[#D9541E] text-white border-[#D9541E]"
+                        : "bg-white text-[#737373] border-[#E5DFD3] hover:bg-[#FAF7F2]"
                     }`}
                   >
                     +${amt}
@@ -131,7 +131,7 @@ export default function DebtPayoffCalc() {
             </div>
 
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                 $
               </span>
               <input
@@ -140,21 +140,21 @@ export default function DebtPayoffCalc() {
                 step="50"
                 value={extraPayment}
                 onChange={(e) => setExtraPayment(Number(e.target.value) || 0)}
-                className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 bg-white text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-[#E5DFD3] bg-white text-base font-bold text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D9541E]"
               />
             </div>
-            <p className="text-xs text-slate-500">
-              Total monthly commitment: <span className="font-bold text-slate-900">{formatCurrency(totalMinPayment + extraPayment)}/mo</span> ({formatCurrency(totalMinPayment)} minimums + {formatCurrency(extraPayment)} accelerated).
+            <p className="text-xs text-[#737373]">
+              Total monthly commitment: <span className="font-bold text-[#111111]">{formatCurrency(totalMinPayment + extraPayment)}/mo</span> ({formatCurrency(totalMinPayment)} minimums + {formatCurrency(extraPayment)} accelerated).
             </p>
           </div>
 
           {/* Debts Table */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-bold text-slate-900">
+              <span className="text-sm font-bold text-[#111111]">
                 Current Outstanding Debts ({debts.length})
               </span>
-              <span className="text-xs font-bold text-slate-500">
+              <span className="text-xs font-bold text-[#737373]">
                 Total Debt: {formatCurrency(totalBalance)}
               </span>
             </div>
@@ -163,18 +163,18 @@ export default function DebtPayoffCalc() {
               {debts.map((d) => (
                 <div
                   key={d.id}
-                  className="p-4 bg-white rounded-2xl border border-slate-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                  className="p-4 bg-white rounded-2xl border border-[#E5DFD3] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                 >
                   <div className="min-w-0">
-                    <p className="text-base font-bold text-slate-900 truncate">{d.name}</p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-base font-bold text-[#111111] truncate">{d.name}</p>
+                    <p className="text-xs text-[#737373]">
                       APR: {d.interestRate}% · Min Pay: {formatCurrency(d.minimumPayment)}/mo
                     </p>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <div className="relative w-32">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#737373] text-xs">
                         $
                       </span>
                       <input
@@ -182,13 +182,13 @@ export default function DebtPayoffCalc() {
                         min="0"
                         value={d.balance}
                         onChange={(e) => handleUpdateDebt(d.id, "balance", Number(e.target.value) || 0)}
-                        className="w-full pl-7 pr-3 py-1.5 rounded-lg border border-slate-200 text-sm font-bold text-right text-slate-900 focus:outline-none focus:border-slate-900"
+                        className="w-full pl-7 pr-3 py-1.5 rounded-lg border border-[#E5DFD3] text-sm font-bold text-right text-[#111111] focus:outline-none focus:border-[#D9541E]"
                       />
                     </div>
                     <button
                       type="button"
                       onClick={() => handleRemoveDebt(d.id)}
-                      className="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
+                      className="p-2 text-[#737373] hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
                       aria-label="Remove debt"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -200,8 +200,8 @@ export default function DebtPayoffCalc() {
           </div>
 
           {/* Add New Debt Form */}
-          <form onSubmit={handleAddDebt} className="p-5 bg-slate-50 rounded-2xl border border-dashed border-slate-300 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+          <form onSubmit={handleAddDebt} className="p-5 bg-[#FAF7F2] rounded-2xl border border-dashed border-[#E5DFD3] space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#737373] block">
               Add Another Debt
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
@@ -210,14 +210,14 @@ export default function DebtPayoffCalc() {
                 placeholder="Debt Name (e.g. Card)"
                 value={newDebtName}
                 onChange={(e) => setNewDebtName(e.target.value)}
-                className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-slate-900"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E5DFD3] bg-white text-sm text-[#111111] focus:outline-none focus:border-[#D9541E]"
               />
               <input
                 type="number"
                 placeholder="Balance ($)"
                 value={newDebtBalance}
                 onChange={(e) => setNewDebtBalance(e.target.value)}
-                className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-slate-900"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E5DFD3] bg-white text-sm text-[#111111] focus:outline-none focus:border-[#D9541E]"
               />
               <input
                 type="number"
@@ -225,19 +225,19 @@ export default function DebtPayoffCalc() {
                 placeholder="APR (%)"
                 value={newDebtRate}
                 onChange={(e) => setNewDebtRate(e.target.value)}
-                className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-slate-900"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E5DFD3] bg-white text-sm text-[#111111] focus:outline-none focus:border-[#D9541E]"
               />
               <input
                 type="number"
                 placeholder="Min Pay ($)"
                 value={newDebtMin}
                 onChange={(e) => setNewDebtMin(e.target.value)}
-                className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-slate-900"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E5DFD3] bg-white text-sm text-[#111111] focus:outline-none focus:border-[#D9541E]"
               />
             </div>
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-950 text-white rounded-full font-bold text-xs hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#D9541E] hover:bg-[#BF4413] text-white rounded-full font-bold text-xs transition-colors"
             >
               <Plus className="w-4 h-4" />
               <span>Add Debt to Plan</span>
@@ -246,9 +246,9 @@ export default function DebtPayoffCalc() {
         </div>
 
         {/* Right Panel: Results & Timeline (5 cols) */}
-        <div className="lg:col-span-5 bg-slate-950 text-white rounded-3xl p-8 shadow-2xl border border-slate-800 space-y-6">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 shadow-2xl border border-[#262626] space-y-6">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#888888]">
               Projected Debt Freedom
             </span>
             <div className="mt-2 flex items-baseline gap-3">
@@ -256,51 +256,51 @@ export default function DebtPayoffCalc() {
                 {result.payoffDate}
               </h3>
             </div>
-            <p className="text-xs text-emerald-400 font-semibold mt-1 flex items-center gap-1.5">
+            <p className="text-xs text-[#D9541E] font-semibold mt-1 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Accelerated with {formatCurrency(extraPayment)}/mo extra
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 py-5 border-y border-slate-800">
+          <div className="grid grid-cols-2 gap-4 py-5 border-y border-[#262626]">
             <div>
-              <span className="text-xs text-slate-400">Total Interest</span>
+              <span className="text-xs text-[#888888]">Total Interest</span>
               <p className="text-2xl font-bold text-white mt-1">
                 {formatCurrency(result.totalInterestPaid)}
               </p>
             </div>
             <div>
-              <span className="text-xs text-slate-400">Interest Saved</span>
-              <p className="text-2xl font-bold text-emerald-400 mt-1">
+              <span className="text-xs text-[#888888]">Interest Saved</span>
+              <p className="text-2xl font-bold text-[#D9541E] mt-1">
                 +{formatCurrency(result.interestSaved)}
               </p>
             </div>
           </div>
 
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#888888] block mb-3">
               Recommended Payoff Priority:
             </span>
             <ol className="space-y-2.5">
               {result.debtOrder.map((name, idx) => (
                 <li
                   key={name}
-                  className="flex items-center justify-between p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs"
+                  className="flex items-center justify-between p-3 rounded-xl bg-[#181818] border border-[#262626] text-xs"
                 >
-                  <span className="flex items-center gap-2.5 font-medium text-slate-200">
-                    <span className="w-5 h-5 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center font-bold text-[10px]">
+                  <span className="flex items-center gap-2.5 font-medium text-[#E5DFD3]">
+                    <span className="w-5 h-5 rounded-full bg-[#262626] text-[#E5DFD3] flex items-center justify-center font-bold text-[10px]">
                       {idx + 1}
                     </span>
                     {name}
                   </span>
-                  <span className="text-emerald-400 font-bold">Priority #{idx + 1}</span>
+                  <span className="text-[#D9541E] font-bold">Priority #{idx + 1}</span>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+          <div className="pt-2 text-xs text-[#888888] flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#D9541E] flex-shrink-0" />
             <span>Calculation reflects constant extra payments applied monthly until zero balance.</span>
           </div>
         </div>

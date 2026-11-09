@@ -55,31 +55,32 @@ export default async function LearnCategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="space-y-16 pb-20">
       {/* ──────────────── 1. CATEGORY HERO ──────────────── */}
-      <section className="bg-gradient-to-b from-[#112444] to-[#0a172c] text-white py-16 md:py-20 relative overflow-hidden">
+      <section className="bg-[#F3EEE3] text-[#111111] py-16 md:py-20 relative overflow-hidden border-b border-[#E5DFD3]/80">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9541E]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="container-main relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8 space-y-5">
-              <span className="inline-block text-xs font-bold tracking-widest uppercase text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1 rounded-full">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#D9541E] bg-[#D9541E]/10 border border-[#D9541E]/20 px-3.5 py-1.5 rounded-full">
                 {cat.name}
               </span>
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Build better money habits for a brighter future.
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
+                Build better money habits for a <span className="italic font-serif font-normal text-[#D9541E]">brighter future.</span>
               </h1>
-              <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+              <p className="text-[#4A4A4A] text-base sm:text-lg max-w-xl leading-relaxed">
                 Practical guides, expert insights and simple tools to help you manage your money, reach your goals and gain confidence in your financial decisions.
               </p>
 
               <div className="flex flex-wrap gap-2.5 pt-2">
-                <a href="#featured" className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors">
-                  <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                <a href="#featured" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E5DFD3] hover:border-[#D9541E]/50 text-xs font-bold text-[#111111] transition-all shadow-xs">
+                  <FileText className="w-3.5 h-3.5 text-[#D9541E]" />
                   <span>Guides &amp; Articles</span>
                 </a>
-                <Link href="/tools" className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors">
-                  <Calculator className="w-3.5 h-3.5 text-blue-400" />
+                <Link href="/tools" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E5DFD3] hover:border-[#D9541E]/50 text-xs font-bold text-[#111111] transition-all shadow-xs">
+                  <Calculator className="w-3.5 h-3.5 text-[#D9541E]" />
                   <span>Related Tools</span>
                 </Link>
-                <a href="#latest" className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors">
-                  <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
+                <a href="#latest" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E5DFD3] hover:border-[#D9541E]/50 text-xs font-bold text-[#111111] transition-all shadow-xs">
+                  <TrendingUp className="w-3.5 h-3.5 text-[#D9541E]" />
                   <span>Expert Insights</span>
                 </a>
               </div>
@@ -87,13 +88,13 @@ export default async function LearnCategoryPage({ params }: CategoryPageProps) {
 
             {/* Note mockup */}
             <div className="lg:col-span-4 hidden lg:block">
-              <div className="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md text-xs text-gray-300 space-y-3">
+              <div className="bg-[#111111] border border-[#262626] rounded-3xl p-6 shadow-2xl backdrop-blur-md text-xs text-[#E5DFD3] space-y-3">
                 <p className="font-bold text-white text-sm">Better Money Habits</p>
-                <div className="space-y-1.5 text-emerald-300">
-                  <p>✓ Save before spending</p>
-                  <p>✓ Eliminate high-interest debt</p>
-                  <p>✓ Track monthly cashflow</p>
-                  <p>✓ Invest consistently</p>
+                <div className="space-y-2 text-[#CCCCCC]">
+                  <p className="flex items-center gap-2"><span className="text-[#D9541E] font-bold">✓</span> Save before spending</p>
+                  <p className="flex items-center gap-2"><span className="text-[#D9541E] font-bold">✓</span> Eliminate high-interest debt</p>
+                  <p className="flex items-center gap-2"><span className="text-[#D9541E] font-bold">✓</span> Track monthly cashflow</p>
+                  <p className="flex items-center gap-2"><span className="text-[#D9541E] font-bold">✓</span> Invest consistently</p>
                 </div>
               </div>
             </div>
@@ -104,43 +105,44 @@ export default async function LearnCategoryPage({ params }: CategoryPageProps) {
       {/* ──────────────── 2. FEATURED ARTICLE ──────────────── */}
       <section className="container-main" id="featured">
         <div className="mb-6">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#737373]">
             Featured Article
           </span>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-sm grid md:grid-cols-12 gap-8 items-center p-6 md:p-8">
+        <div className="bg-white rounded-3xl border border-[#E5DFD3] overflow-hidden shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl transition-all duration-300 grid md:grid-cols-12 gap-8 items-center p-8 md:p-10 group">
           <div className="md:col-span-7 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#D9541E] bg-[#D9541E]/10 border border-[#D9541E]/20 px-3 py-1 rounded-full">
               Essential Guide
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111] group-hover:text-[#D9541E] transition-colors leading-snug tracking-tight">
               {featuredArticle.title}
             </h2>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-base text-[#4A4A4A] leading-relaxed">
               {featuredArticle.excerpt}
             </p>
-            <div className="flex items-center gap-4 text-xs text-gray-500 pt-2">
-              <span className="font-semibold text-gray-900">By {featuredArticle.author.name}</span>
+            <div className="flex items-center gap-4 text-xs text-[#737373] pt-2">
+              <span className="font-bold text-[#111111]">By {featuredArticle.author.name}</span>
               <span>·</span>
               <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" />
+                <Clock className="w-3.5 h-3.5 text-[#D9541E]" />
                 {featuredArticle.readTime} min read
               </span>
             </div>
             <div className="pt-2">
               <Link
                 href={`/learn/${featuredArticle.category}/${featuredArticle.slug}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-navy hover:bg-blue-900 text-white font-semibold text-xs rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#D9541E] hover:bg-[#BF4413] text-white font-bold text-xs sm:text-sm rounded-full shadow-sm transition-all active:scale-95"
               >
                 <span>Read full guide</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
-          <div className="md:col-span-5 w-full h-56 sm:h-64 rounded-xl bg-gradient-to-tr from-slate-800 to-brand-navy flex items-center justify-center text-5xl text-white">
-            📝
+          <div className="md:col-span-5 w-full h-64 sm:h-72 rounded-2xl bg-[#111111] border border-[#262626] flex items-center justify-center text-5xl text-[#F3EEE3] shadow-inner relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#D9541E]/20 to-transparent" />
+            <span className="relative z-10 text-4xl">✦</span>
           </div>
         </div>
       </section>
@@ -148,28 +150,28 @@ export default async function LearnCategoryPage({ params }: CategoryPageProps) {
       {/* ──────────────── 3. EXPLORE THIS CATEGORY (SUBCATEGORIES) ──────────────── */}
       <section className="container-main">
         <div className="mb-6">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#737373]">
             Topics in {cat.name}
           </span>
-          <h2 className="text-2xl font-extrabold text-gray-900 mt-1">
+          <h2 className="text-2xl font-extrabold text-[#111111] mt-1 tracking-tight">
             Explore this category
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {subcategories.map((sub, idx) => {
             const Icon = sub.icon;
             return (
               <div
                 key={idx}
-                className="p-5 rounded-xl border border-gray-100 bg-white shadow-xs hover:border-blue-100 transition-all flex items-start gap-4"
+                className="p-6 rounded-2xl sm:rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 group"
               >
-                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-brand-navy flex-shrink-0 mt-0.5">
-                  <Icon className="w-5 h-5" />
+                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] flex items-center justify-center text-[#D9541E] group-hover:bg-[#D9541E] group-hover:text-white transition-all flex-shrink-0 mt-0.5">
+                  <Icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-gray-900">{sub.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1">{sub.desc}</p>
+                  <h3 className="text-base font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors">{sub.name}</h3>
+                  <p className="text-xs sm:text-sm text-[#4A4A4A] mt-1 leading-relaxed">{sub.desc}</p>
                 </div>
               </div>
             );

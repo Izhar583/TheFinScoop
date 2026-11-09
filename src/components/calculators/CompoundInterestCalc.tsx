@@ -36,16 +36,16 @@ export default function CompoundInterestCalc() {
   });
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+    <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden">
       {/* Top Bar / Tabs */}
-      <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/80 px-8 py-5">
+      <div className="flex items-center justify-between border-b border-[#E5DFD3] bg-[#FAF7F2] px-8 py-5">
         <div className="flex gap-8">
           <button
             onClick={() => setActiveTab("basic")}
             className={`pb-2 text-base font-bold border-b-2 transition-all ${
               activeTab === "basic"
-                ? "border-slate-950 text-slate-950"
-                : "border-transparent text-slate-400 hover:text-slate-800"
+                ? "border-[#D9541E] text-[#111111]"
+                : "border-transparent text-[#737373] hover:text-[#111111]"
             }`}
           >
             Basic Calculator
@@ -54,8 +54,8 @@ export default function CompoundInterestCalc() {
             onClick={() => setActiveTab("advanced")}
             className={`pb-2 text-base font-bold border-b-2 transition-all ${
               activeTab === "advanced"
-                ? "border-slate-950 text-slate-950"
-                : "border-transparent text-slate-400 hover:text-slate-800"
+                ? "border-[#D9541E] text-[#111111]"
+                : "border-transparent text-[#737373] hover:text-[#111111]"
             }`}
           >
             Frequency Settings
@@ -64,9 +64,9 @@ export default function CompoundInterestCalc() {
 
         <button
           onClick={() => setShowChart(!showChart)}
-          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-100 shadow-2xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E5DFD3] text-xs font-bold text-[#111111] hover:border-[#D9541E]/40 shadow-xs transition-colors"
         >
-          <BarChart2 className="w-3.5 h-3.5 text-blue-600" />
+          <BarChart2 className="w-3.5 h-3.5 text-[#D9541E]" />
           <span>{showChart ? "Hide Graph" : "Show Growth Graph"}</span>
         </button>
       </div>
@@ -77,11 +77,11 @@ export default function CompoundInterestCalc() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Initial Investment */}
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Initial Investment
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   $
                 </span>
                 <input
@@ -90,18 +90,18 @@ export default function CompoundInterestCalc() {
                   step="100"
                   value={initialInvestment}
                   onChange={(e) => setInitialInvestment(Number(e.target.value) || 0)}
-                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
               </div>
             </div>
 
             {/* Monthly Contribution */}
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Monthly Contribution
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   $
                 </span>
                 <input
@@ -110,7 +110,7 @@ export default function CompoundInterestCalc() {
                   step="50"
                   value={regularContribution}
                   onChange={(e) => setRegularContribution(Number(e.target.value) || 0)}
-                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function CompoundInterestCalc() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Annual Interest Rate */}
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Annual Interest Rate
               </label>
               <div className="relative">
@@ -130,9 +130,9 @@ export default function CompoundInterestCalc() {
                   step="0.5"
                   value={annualInterestRate}
                   onChange={(e) => setAnnualInterestRate(Number(e.target.value) || 0)}
-                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   %
                 </span>
               </div>
@@ -140,7 +140,7 @@ export default function CompoundInterestCalc() {
 
             {/* Investment Period */}
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Investment Period
               </label>
               <div className="relative">
@@ -150,9 +150,9 @@ export default function CompoundInterestCalc() {
                   max="50"
                   value={investmentPeriod}
                   onChange={(e) => setInvestmentPeriod(Number(e.target.value) || 1)}
-                  className="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-4 pr-16 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   years
                 </span>
               </div>
@@ -161,14 +161,14 @@ export default function CompoundInterestCalc() {
 
           {/* Advanced Tab Options */}
           {activeTab === "advanced" && (
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 animate-in fade-in duration-150">
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+            <div className="p-5 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] animate-in fade-in duration-150">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Compounding Frequency
               </label>
               <select
                 value={compoundFrequency}
                 onChange={(e) => setCompoundFrequency(e.target.value as any)}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all bg-white"
+                className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all bg-white"
               >
                 <option value="daily">Daily (365 times / year)</option>
                 <option value="monthly">Monthly (12 times / year — Standard)</option>
@@ -180,17 +180,17 @@ export default function CompoundInterestCalc() {
 
           {/* Interactive Recharts Area Visualizer */}
           {showChart && result.yearlyBreakdown.length > 0 && (
-            <div className="pt-6 border-t border-slate-100">
+            <div className="pt-6 border-t border-[#E5DFD3]">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#737373]">
                   Growth Trajectory Over {investmentPeriod} Years
                 </span>
                 <div className="flex items-center gap-4 text-xs font-bold">
-                  <span className="flex items-center gap-1.5 text-slate-500">
-                    <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" /> Contributions
+                  <span className="flex items-center gap-1.5 text-[#737373]">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#111111] inline-block" /> Deposits
                   </span>
-                  <span className="flex items-center gap-1.5 text-emerald-600">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" /> Total Portfolio
+                  <span className="flex items-center gap-1.5 text-[#D9541E]">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#D9541E] inline-block" /> Total Portfolio
                   </span>
                 </div>
               </div>
@@ -202,33 +202,33 @@ export default function CompoundInterestCalc() {
                   >
                     <defs>
                       <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.4} />
-                        <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#D9541E" stopOpacity={0.4} />
+                        <stop offset="95%" stopColor="#D9541E" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="colorContrib" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#111111" stopOpacity={0.2} />
+                        <stop offset="95%" stopColor="#111111" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <XAxis
                       dataKey="year"
                       tickLine={false}
                       axisLine={false}
-                      tick={{ fontSize: 12, fill: "#64748b" }}
+                      tick={{ fontSize: 12, fill: "#737373" }}
                       tickFormatter={(val) => `Yr ${val}`}
                     />
                     <YAxis
                       tickLine={false}
                       axisLine={false}
-                      tick={{ fontSize: 12, fill: "#64748b" }}
+                      tick={{ fontSize: 12, fill: "#737373" }}
                       tickFormatter={(val) => `$${val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val}`}
                     />
                     <Tooltip
                       formatter={(val: any) => [formatCurrency(Number(val)), ""]}
                       labelFormatter={(label) => `Year ${label}`}
                       contentStyle={{
-                        backgroundColor: "#020617",
-                        border: "1px solid #1e293b",
+                        backgroundColor: "#111111",
+                        border: "1px solid #262626",
                         borderRadius: "16px",
                         fontSize: "13px",
                         color: "#fff",
@@ -238,7 +238,7 @@ export default function CompoundInterestCalc() {
                     <Area
                       type="monotone"
                       dataKey="contributions"
-                      stroke="#3b82f6"
+                      stroke="#111111"
                       strokeWidth={2}
                       fillOpacity={1}
                       fill="url(#colorContrib)"
@@ -246,8 +246,8 @@ export default function CompoundInterestCalc() {
                     <Area
                       type="monotone"
                       dataKey="balance"
-                      stroke="#10b981"
-                      strokeWidth={2}
+                      stroke="#D9541E"
+                      strokeWidth={2.5}
                       fillOpacity={1}
                       fill="url(#colorBalance)"
                     />
@@ -259,45 +259,45 @@ export default function CompoundInterestCalc() {
         </div>
 
         {/* Results Panel (5 cols) */}
-        <div className="lg:col-span-5 bg-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-800 flex flex-col justify-between space-y-8">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D9541E]">
               Projected Portfolio Value
             </span>
             <div className="mt-3">
-              <p className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">
                 {formatCurrency(result.totalValue)}
               </p>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-sm text-[#888888] mt-1">
                 Value after {investmentPeriod} years of compounding
               </p>
             </div>
 
-            <div className="mt-8 space-y-4 pt-6 border-t border-slate-800 text-sm">
-              <div className="flex justify-between items-center text-slate-300">
+            <div className="mt-8 space-y-4 pt-6 border-t border-[#262626] text-sm">
+              <div className="flex justify-between items-center text-[#CCCCCC]">
                 <span>Total deposits:</span>
                 <span className="font-bold text-white text-base">
                   {formatCurrency(result.totalContributions)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-slate-300">
+              <div className="flex justify-between items-center text-[#CCCCCC]">
                 <span>Total compound interest:</span>
-                <span className="font-bold text-emerald-400 text-base">
+                <span className="font-bold text-[#D9541E] text-base">
                   +{formatCurrency(result.totalGrowth)}
                 </span>
               </div>
             </div>
 
             {/* Growth callout badge */}
-            <div className="mt-6 p-4 rounded-2xl bg-emerald-950/70 border border-emerald-800 text-sm text-emerald-300 flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+            <div className="mt-6 p-4 rounded-2xl bg-[#181818] border border-[#262626] text-sm text-[#E5DFD3] flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-[#D9541E] flex-shrink-0 mt-0.5" />
               <span>
-                Your money grows by <strong>+{formatPercentage(result.growthPercentage)}</strong> strictly from compounding interest.
+                Your money grows by <strong className="text-white">+{formatPercentage(result.growthPercentage)}</strong> strictly from compounding interest.
               </span>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-800 text-xs text-slate-400">
+          <div className="pt-4 border-t border-[#262626] text-xs text-[#888888]">
             <span>
               Projections assume a continuous rate of return and monthly compounding without account maintenance fees.
             </span>

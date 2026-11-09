@@ -56,43 +56,44 @@ export default function NewsletterPage() {
         <Breadcrumb items={[{ label: "TheFinScoop" }, { label: "Newsletter" }]} />
 
         {/* Hero Section */}
-        <div className="bg-gradient-to-b from-[#13284c] to-[#0e1e38] text-white rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-xl mb-12">
-          <div className="max-w-2xl space-y-5">
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1 rounded-full">
+        <div className="bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-2xl border border-[#262626] mb-12">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D9541E]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="max-w-2xl space-y-5 relative z-10">
+            <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#D9541E] bg-[#D9541E]/15 border border-[#D9541E]/30 px-3.5 py-1.5 rounded-full">
               Free Weekly Digest
             </span>
             <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              A clearer view of money, once a week.
+              A clearer view of money, <span className="italic font-serif font-normal text-[#D9541E]">once a week.</span>
             </h1>
-            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-[#CCCCCC] leading-relaxed">
               Join thousands of smart readers who get our free Thursday newsletter. Zero fluff, zero sponsored bias — just practical money strategies, new calculators, and fintech explainers.
             </p>
 
             {/* Form */}
             {submitted ? (
-              <div className="p-6 rounded-2xl bg-emerald-950/90 border border-emerald-700 text-emerald-200 space-y-2 mt-6">
-                <div className="flex items-center gap-2 font-bold text-base text-emerald-300">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-[#F3EEE3] space-y-2 mt-6">
+                <div className="flex items-center gap-2 font-bold text-base text-white">
+                  <CheckCircle2 className="w-5 h-5 text-[#D9541E]" />
                   <span>Welcome to TheFinScoop Community!</span>
                 </div>
-                <p className="text-xs text-gray-300">
+                <p className="text-xs text-[#888888]">
                   We&apos;ve sent a confirmation email to <strong>{email}</strong>. Look out for our next edition this Thursday morning.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 pt-2">
-                <div className="flex flex-col sm:flex-row gap-2.5 max-w-lg">
+                <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="flex-1 px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:bg-white/20 focus:border-emerald-400 transition-all"
+                    className="flex-1 px-4 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-sm focus:outline-none focus:bg-white/15 focus:border-[#D9541E] transition-all"
                   />
                   <button
                     type="submit"
-                    className="px-7 py-3.5 bg-[#22C55E] hover:bg-emerald-600 text-white font-bold text-sm rounded-xl shadow-md transition-all active:scale-95 whitespace-nowrap"
+                    className="px-8 py-3.5 bg-[#D9541E] hover:bg-[#BF4413] text-white font-bold text-sm rounded-full shadow-md transition-all active:scale-95 whitespace-nowrap"
                   >
                     Subscribe Free
                   </button>
@@ -100,7 +101,7 @@ export default function NewsletterPage() {
 
                 {/* Topics of Interest */}
                 <div className="flex flex-wrap items-center gap-2 pt-2">
-                  <span className="text-xs text-gray-400">Topics you want:</span>
+                  <span className="text-xs text-[#888888]">Topics you want:</span>
                   {[
                     { id: "finance", label: "Personal Finance" },
                     { id: "calculators", label: "Calculator Updates" },
@@ -110,10 +111,10 @@ export default function NewsletterPage() {
                       key={t.id}
                       type="button"
                       onClick={() => toggleTopic(t.id)}
-                      className={`text-xs px-2.5 py-1 rounded-md transition-colors ${
+                      className={`text-xs px-3 py-1 rounded-full border transition-all ${
                         topics.includes(t.id)
-                          ? "bg-white/20 text-white font-semibold"
-                          : "bg-white/5 text-gray-400 hover:text-white"
+                          ? "bg-[#D9541E]/20 text-[#D9541E] border-[#D9541E]/40 font-bold"
+                          : "bg-white/5 text-[#888888] border-white/10 hover:text-white"
                       }`}
                     >
                       {topics.includes(t.id) ? "✓ " : "+ "}{t.label}
@@ -121,9 +122,9 @@ export default function NewsletterPage() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-3 text-[11px] text-gray-400 pt-2">
+                <div className="flex items-center gap-3 text-[11px] text-[#888888] pt-2">
                   <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#D9541E]" />
                     <span>No spam ever</span>
                   </span>
                   <span>·</span>
@@ -138,32 +139,32 @@ export default function NewsletterPage() {
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-2.5">
-            <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#1D3A6E] flex items-center justify-center">
-              <Calendar className="w-4 h-4" />
+          <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+            <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] text-[#D9541E] flex items-center justify-center group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-300">
+              <Calendar className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-gray-900 text-base">Thursday Delivery</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            <h3 className="font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors text-lg">Thursday Delivery</h3>
+            <p className="text-sm text-[#4A4A4A] leading-relaxed">
               Delivered every Thursday at 8:00 AM EST. Designed to be read in under 4 minutes with your morning coffee.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-2.5">
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
-              <Sparkles className="w-4 h-4" />
+          <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+            <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] text-[#D9541E] flex items-center justify-center group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-300">
+              <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-gray-900 text-base">Practical Tools Spotlight</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              First look at newly released financial planners, mortgage estimators, and tax calculators.
+            <h3 className="font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors text-lg">Practical Tools Spotlight</h3>
+            <p className="text-sm text-[#4A4A4A] leading-relaxed">
+              First look at newly released financial planners, mortgage estimators, and investment calculators.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-2.5">
-            <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center">
-              <TrendingUp className="w-4 h-4" />
+          <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+            <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DFD3] text-[#D9541E] flex items-center justify-center group-hover:bg-[#D9541E] group-hover:text-white transition-all duration-300">
+              <TrendingUp className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-gray-900 text-base">Actionable Insights</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            <h3 className="font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors text-lg">Actionable Insights</h3>
+            <p className="text-sm text-[#4A4A4A] leading-relaxed">
               No economic theory or market hype. Just clear steps to save money, negotiate lower rates, and optimize returns.
             </p>
           </div>
@@ -171,12 +172,12 @@ export default function NewsletterPage() {
 
         {/* Past Editions Preview */}
         <section className="space-y-6">
-          <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+          <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#737373]">
                 Archive
               </span>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mt-0.5">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#111111] tracking-tight mt-0.5">
                 Recent Newsletter Editions
               </h2>
             </div>
@@ -186,19 +187,19 @@ export default function NewsletterPage() {
             {sampleEditions.map((ed, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-xl border border-gray-200/80 bg-white shadow-2xs hover:border-blue-200 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                className="p-6 rounded-2xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-lg transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
               >
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[11px] font-bold text-blue-600">
-                    <span className="bg-blue-50 px-2 py-0.5 rounded">{ed.issue}</span>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#D9541E]">
+                    <span className="bg-[#D9541E]/10 border border-[#D9541E]/20 px-2.5 py-0.5 rounded-full">{ed.issue}</span>
                     <span>·</span>
-                    <span className="text-gray-400">{ed.date}</span>
+                    <span className="text-[#737373]">{ed.date}</span>
                   </div>
-                  <h3 className="font-bold text-gray-900 text-base">{ed.title}</h3>
-                  <p className="text-xs text-gray-500 max-w-2xl leading-relaxed">{ed.desc}</p>
+                  <h3 className="font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors text-lg tracking-tight">{ed.title}</h3>
+                  <p className="text-xs sm:text-sm text-[#4A4A4A] max-w-2xl leading-relaxed">{ed.desc}</p>
                 </div>
                 <div className="flex-shrink-0">
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-[#1D3A6E] hover:text-blue-700">
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-[#D9541E] group-hover:translate-x-1 transition-transform">
                     <span>Read issue</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>

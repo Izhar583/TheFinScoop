@@ -21,13 +21,13 @@ export default function AuthorDirectoryPage() {
 
         {/* Hero */}
         <div className="max-w-3xl space-y-3 mb-12">
-          <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#1D3A6E]">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#D9541E]/10 text-[#D9541E] border border-[#D9541E]/20">
             Editorial Team
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-950 tracking-tight leading-tight">
-            Author Directory
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
+            Author <span className="italic font-serif font-normal text-[#D9541E]">Directory</span>
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-[#4A4A4A] leading-relaxed">
             Our content is written and fact-checked by experienced journalists and personal finance experts committed to accuracy, transparency, and actionable advice.
           </p>
         </div>
@@ -42,39 +42,39 @@ export default function AuthorDirectoryPage() {
             return (
               <div
                 key={author.slug}
-                className="bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-7 shadow-xs hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white rounded-3xl border border-[#E5DFD3] p-7 shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#1D3A6E] to-blue-700 flex items-center justify-center font-extrabold text-xl text-white shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-[#111111] text-[#F3EEE3] group-hover:bg-[#D9541E] group-hover:text-white transition-all flex items-center justify-center font-extrabold text-xl shadow-sm">
                       {author.name.split(" ").map((n) => n[0]).join("")}
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-950 leading-tight">
+                      <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors leading-tight">
                         {author.name}
                       </h3>
-                      <p className="text-xs font-semibold text-blue-600 mt-0.5">
+                      <p className="text-xs font-bold text-[#D9541E] mt-0.5">
                         {author.role}
                       </p>
-                      <span className="text-[11px] text-gray-400">
+                      <span className="text-[11px] text-[#737373]">
                         {authorArticles.length} published guide{authorArticles.length !== 1 ? "s" : ""}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-gray-600 leading-relaxed pt-2">
+                  <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed pt-2">
                     {author.bio}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-[#E5DFD3] flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     {author.social?.twitter && (
                       <a
                         href={author.social.twitter}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1.5 text-gray-400 hover:text-[#1D3A6E] rounded-md transition-colors"
+                        className="p-1.5 text-[#737373] hover:text-[#D9541E] rounded-md transition-colors"
                         aria-label="Twitter profile"
                       >
                         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function AuthorDirectoryPage() {
                         href={author.social.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1.5 text-gray-400 hover:text-blue-700 rounded-md transition-colors"
+                        className="p-1.5 text-[#737373] hover:text-[#D9541E] rounded-md transition-colors"
                         aria-label="LinkedIn profile"
                       >
                         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default function AuthorDirectoryPage() {
 
                   <Link
                     href={`/author/${author.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#D9541E] hover:text-[#BF4413] transition-colors"
                   >
                     <span>Read articles</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -111,13 +111,13 @@ export default function AuthorDirectoryPage() {
         </div>
 
         {/* Editorial Standards Notice */}
-        <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200/80 flex items-start gap-4">
-          <ShieldCheck className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-0.5" />
+        <div className="p-8 rounded-3xl bg-[#111111] text-[#E5DFD3] border border-[#262626] flex items-start gap-4 shadow-xl">
+          <ShieldCheck className="w-8 h-8 text-[#D9541E] flex-shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
               Strict Editorial Guidelines
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#CCCCCC] leading-relaxed">
               Every guide on TheFinScoop undergoes rigorous peer-review and fact-checking before publication. Our writers do not accept payment from financial institutions for product placement or review favoritism.
             </p>
           </div>

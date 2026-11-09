@@ -43,77 +43,77 @@ export default function AdvertisePage() {
 
         {/* Hero */}
         <div className="max-w-3xl space-y-3 mb-12">
-          <span className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-[#1D3A6E]">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#D9541E]/10 text-[#D9541E] border border-[#D9541E]/20">
             Partnerships &amp; Media
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-950 tracking-tight leading-tight">
-            Partner With TheFinScoop
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
+            Partner With <span className="italic font-serif font-normal text-[#D9541E]">TheFinScoop</span>
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-[#4A4A4A] leading-relaxed">
             Reach hundreds of thousands of motivated consumers and decision-makers actively researching bank accounts, investments, loans, and financial software.
           </p>
         </div>
 
         {/* Audience Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
-          <div className="p-6 rounded-2xl bg-white border border-gray-200/80 shadow-2xs text-center space-y-1">
-            <p className="text-3xl sm:text-4xl font-black text-[#1D3A6E]">250K+</p>
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Monthly Visitors</p>
-            <p className="text-[11px] text-gray-400">High financial intent</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="p-6 rounded-2xl bg-white border border-[#E5DFD3] shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center space-y-1 group">
+            <p className="text-3xl sm:text-4xl font-black text-[#111111] group-hover:text-[#D9541E] transition-colors">250K+</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#737373]">Monthly Visitors</p>
+            <p className="text-[11px] text-[#888888]">High financial intent</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-gray-200/80 shadow-2xs text-center space-y-1">
-            <p className="text-3xl sm:text-4xl font-black text-emerald-600">42%</p>
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Newsletter Open Rate</p>
-            <p className="text-[11px] text-gray-400">2.5x industry standard</p>
+          <div className="p-6 rounded-2xl bg-white border border-[#E5DFD3] shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center space-y-1 group">
+            <p className="text-3xl sm:text-4xl font-black text-[#D9541E]">42%</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#737373]">Newsletter Open Rate</p>
+            <p className="text-[11px] text-[#888888]">2.5x industry standard</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-gray-200/80 shadow-2xs text-center space-y-1">
-            <p className="text-3xl sm:text-4xl font-black text-blue-600">85%</p>
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Ages 22–45</p>
-            <p className="text-[11px] text-gray-400">Prime earning demographic</p>
+          <div className="p-6 rounded-2xl bg-white border border-[#E5DFD3] shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center space-y-1 group">
+            <p className="text-3xl sm:text-4xl font-black text-[#111111] group-hover:text-[#D9541E] transition-colors">85%</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#737373]">Ages 22–45</p>
+            <p className="text-[11px] text-[#888888]">Prime earning demographic</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-gray-200/80 shadow-2xs text-center space-y-1">
-            <p className="text-3xl sm:text-4xl font-black text-purple-600">6+</p>
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Free Calculators</p>
-            <p className="text-[11px] text-gray-400">Sticky daily engagement</p>
+          <div className="p-6 rounded-2xl bg-white border border-[#E5DFD3] shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center space-y-1 group">
+            <p className="text-3xl sm:text-4xl font-black text-[#D9541E]">6+</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#737373]">Free Calculators</p>
+            <p className="text-[11px] text-[#888888]">Sticky daily engagement</p>
           </div>
         </div>
 
         {/* Partnership Formats */}
         <section className="space-y-6 mb-16">
-          <h2 className="text-2xl font-extrabold text-gray-900">
+          <h2 className="text-2xl font-extrabold text-[#111111] tracking-tight">
             Partnership Opportunities
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-3">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-full">
+            <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-[#D9541E]/10 text-[#D9541E] border border-[#D9541E]/20 px-3 py-1 rounded-full">
                 High Impact
               </span>
-              <h3 className="text-base font-bold text-gray-950">Newsletter Sponsorship</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Exclusive headline placement in our Thursday edition sent directly to thousands of verified personal finance subscribers.
+              <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors">Newsletter Sponsorship</h3>
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                Exclusive headline placement in our edition sent directly to thousands of verified personal finance subscribers.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-3">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full">
+            <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-[#111111]/5 text-[#111111] border border-[#E5DFD3] px-3 py-1 rounded-full">
                 Educational
               </span>
-              <h3 className="text-base font-bold text-gray-950">Sponsored Deep-Dives</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
+              <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors">Sponsored Deep-Dives</h3>
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
                 Collaborative, transparent educational guides explaining your product features, fee models, or platform security.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl border border-gray-200/80 bg-white shadow-xs space-y-3">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-purple-50 text-purple-700 px-2.5 py-0.5 rounded-full">
+            <div className="p-8 rounded-3xl border border-[#E5DFD3] bg-white shadow-sm hover:border-[#D9541E]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 group">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-[#D9541E]/10 text-[#D9541E] border border-[#D9541E]/20 px-3 py-1 rounded-full">
                 Interactive
               </span>
-              <h3 className="text-base font-bold text-gray-950">Calculator Integration</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
+              <h3 className="text-lg font-bold text-[#111111] group-hover:text-[#D9541E] transition-colors">Calculator Integration</h3>
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
                 Feature relevant banking rates, loan offers, or APY benchmarks alongside our high-traffic interactive financial calculators.
               </p>
             </div>
@@ -121,30 +121,30 @@ export default function AdvertisePage() {
         </section>
 
         {/* Partnership Inquiry Form */}
-        <div className="bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-10 shadow-xs max-w-3xl mx-auto">
+        <div className="bg-white rounded-3xl border border-[#E5DFD3] p-8 sm:p-12 shadow-md max-w-3xl mx-auto">
           {submitted ? (
             <div className="text-center py-10 space-y-3">
-              <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 rounded-full bg-[#D9541E]/10 text-[#D9541E] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Partnership Inquiry Received</h3>
-              <p className="text-xs sm:text-sm text-gray-600 max-w-sm mx-auto leading-relaxed">
-                Thank you for your interest in partnering with TheFinScoop. Our partnerships director will review your inquiry and follow up within 24 hours.
+              <h3 className="text-2xl font-bold text-[#111111]">Partnership Inquiry Received</h3>
+              <p className="text-sm text-[#4A4A4A] max-w-sm mx-auto leading-relaxed">
+                Thank you for your interest in partnering with TheFinScoop. Our partnerships team will review your inquiry and follow up within 24 hours.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-gray-950">Request Our Media Kit</h2>
-                <p className="text-xs text-gray-500 mt-1">
+                <h2 className="text-2xl font-extrabold text-[#111111] tracking-tight">Request Our Media Kit</h2>
+                <p className="text-sm text-[#737373] mt-1">
                   Tell us a bit about your brand and our team will send over our rate card and audience breakdown.
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                    Company / Brand Name <span className="text-rose-500">*</span>
+                  <label className="block text-xs font-bold text-[#111111] uppercase tracking-wider mb-2">
+                    Company / Brand Name <span className="text-[#D9541E]">*</span>
                   </label>
                   <input
                     type="text"
@@ -152,13 +152,13 @@ export default function AdvertisePage() {
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                     placeholder="e.g. Acme Fintech"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-xs sm:text-sm focus:border-[#1D3A6E] focus:ring-1 focus:ring-[#1D3A6E]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#111111] focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 bg-[#FAF7F2] focus:bg-white transition-all outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                    Contact Person <span className="text-rose-500">*</span>
+                  <label className="block text-xs font-bold text-[#111111] uppercase tracking-wider mb-2">
+                    Contact Person <span className="text-[#D9541E]">*</span>
                   </label>
                   <input
                     type="text"
@@ -166,15 +166,15 @@ export default function AdvertisePage() {
                     value={formData.contactName}
                     onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
                     placeholder="e.g. Alex Morgan"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-xs sm:text-sm focus:border-[#1D3A6E] focus:ring-1 focus:ring-[#1D3A6E]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#111111] focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 bg-[#FAF7F2] focus:bg-white transition-all outline-none"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                    Business Email <span className="text-rose-500">*</span>
+                  <label className="block text-xs font-bold text-[#111111] uppercase tracking-wider mb-2">
+                    Business Email <span className="text-[#D9541E]">*</span>
                   </label>
                   <input
                     type="email"
@@ -182,18 +182,18 @@ export default function AdvertisePage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="alex@brand.com"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-xs sm:text-sm focus:border-[#1D3A6E] focus:ring-1 focus:ring-[#1D3A6E]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#111111] focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 bg-[#FAF7F2] focus:bg-white transition-all outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  <label className="block text-xs font-bold text-[#111111] uppercase tracking-wider mb-2">
                     Partnership Format
                   </label>
                   <select
                     value={formData.partnershipType}
                     onChange={(e) => setFormData({ ...formData, partnershipType: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-xs sm:text-sm focus:border-[#1D3A6E] focus:ring-1 focus:ring-[#1D3A6E] bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#111111] focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 bg-[#FAF7F2] focus:bg-white transition-all outline-none"
                   >
                     <option value="newsletter">Newsletter Sponsorship</option>
                     <option value="calculator">Calculator Co-Branding</option>
@@ -204,7 +204,7 @@ export default function AdvertisePage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                <label className="block text-xs font-bold text-[#111111] uppercase tracking-wider mb-2">
                   Campaign Goals / Overview
                 </label>
                 <textarea
@@ -212,14 +212,14 @@ export default function AdvertisePage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about your campaign goals, target audience, and timeframe..."
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-xs sm:text-sm focus:border-[#1D3A6E] focus:ring-1 focus:ring-[#1D3A6E] resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-[#E5DFD3] text-sm text-[#111111] focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 bg-[#FAF7F2] focus:bg-white transition-all resize-y outline-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 bg-[#1D3A6E] hover:bg-[#152a50] text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
+                className="w-full py-4 bg-[#D9541E] hover:bg-[#BF4413] text-white font-bold text-sm rounded-full shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
                 <span>{loading ? "Sending..." : "Submit Partnership Inquiry"}</span>

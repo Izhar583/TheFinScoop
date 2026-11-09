@@ -27,9 +27,9 @@ export default function Sidebar({
 
       {/* Featured Tools Widget */}
       {showTools && (
-        <div className="p-5 rounded-xl border border-gray-200 bg-white shadow-xs">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-100">
-            <Calculator className="w-4 h-4 text-[#1D3A6E]" />
+        <div className="p-5 rounded-2xl border border-[#E5DFD3] bg-white shadow-sm">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111111] mb-3 pb-2 border-b border-[#E5DFD3]">
+            <Calculator className="w-4 h-4 text-[#D9541E]" />
             <span>Popular Tools</span>
           </div>
           <div className="space-y-2.5 text-xs">
@@ -37,16 +37,16 @@ export default function Sidebar({
               <Link
                 key={tool.slug}
                 href={`/tools/${tool.slug}`}
-                className="block p-2.5 rounded-lg bg-gray-50 hover:bg-[#E8F0FE] border border-transparent hover:border-blue-100 transition-colors"
+                className="block p-2.5 rounded-xl bg-[#FAF7F2] hover:bg-[#F3EEE3] border border-transparent hover:border-[#D9541E]/30 transition-all"
               >
-                <p className="font-bold text-gray-900">{tool.name}</p>
-                <p className="text-gray-500 text-[11px] mt-0.5 line-clamp-1">{tool.shortDescription}</p>
+                <p className="font-bold text-[#111111]">{tool.name}</p>
+                <p className="text-[#737373] text-[11px] mt-0.5 line-clamp-1">{tool.shortDescription}</p>
               </Link>
             ))}
           </div>
           <Link
             href="/tools"
-            className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 hover:underline mt-3"
+            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#D9541E] hover:text-[#BF4413] mt-3 transition-colors"
           >
             <span>Explore all tools</span>
             <ArrowRight className="w-3 h-3" />
@@ -56,17 +56,17 @@ export default function Sidebar({
 
       {/* Newsletter Widget */}
       {showNewsletter && (
-        <div className="p-5 rounded-xl border border-blue-200 bg-[#E8F0FE]/60">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D3A6E] mb-2">
-            <Mail className="w-4 h-4 text-[#1D3A6E]" />
+        <div className="p-5 rounded-2xl border border-[#262626] bg-[#111111] text-[#E5DFD3] shadow-md">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#F3EEE3] mb-2">
+            <Mail className="w-4 h-4 text-[#D9541E]" />
             <span>Weekly Newsletter</span>
           </div>
-          <p className="text-xs text-gray-600 leading-relaxed mb-3">
+          <p className="text-xs text-[#999999] leading-relaxed mb-3">
             Get practical money tips and new calculators once a week.
           </p>
           <Link
             href="/newsletter"
-            className="w-full inline-flex items-center justify-center py-2 bg-[#1D3A6E] hover:bg-[#152a50] text-white text-xs font-bold rounded-lg shadow-xs transition-colors"
+            className="w-full inline-flex items-center justify-center py-2.5 bg-[#D9541E] hover:bg-[#BF4413] text-white text-xs font-bold rounded-full shadow-sm transition-all active:scale-95"
           >
             Subscribe Free
           </Link>

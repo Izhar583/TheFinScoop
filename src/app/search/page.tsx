@@ -30,7 +30,8 @@ function SearchContent() {
   const totalResults = matchingArticles.length + matchingTools.length;
 
   return (
-    <div className="container-main py-12 lg:py-20 min-h-screen">
+    <div className="min-h-screen bg-[#F3EEE3] py-12 lg:py-20 selection:bg-[#D9541E] selection:text-white">
+      <div className="container-main">
       {/* Search Header */}
       <div className="mb-12 max-w-3xl space-y-4">
         <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#D9541E] bg-[#D9541E]/10 border border-[#D9541E]/20 px-3 py-1 rounded-full">
@@ -136,6 +137,7 @@ function SearchContent() {
         </main>
       </div>
     </div>
+  </div>
   );
 }
 

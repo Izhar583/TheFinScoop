@@ -71,15 +71,15 @@ export default function FilterPanel({
   };
 
   return (
-    <div className={`bg-white rounded-xl border border-gray-200 p-5 space-y-6 shadow-xs ${className}`}>
-      <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-        <div className="flex items-center gap-1.5 font-bold text-sm text-gray-900">
-          <Filter className="w-4 h-4 text-[#1D3A6E]" />
+    <div className={`bg-white rounded-2xl border border-[#E5DFD3] p-6 space-y-6 shadow-sm ${className}`}>
+      <div className="flex items-center justify-between pb-3 border-b border-[#E5DFD3]">
+        <div className="flex items-center gap-1.5 font-bold text-sm text-[#111111]">
+          <Filter className="w-4 h-4 text-[#D9541E]" />
           <span>Filter Results</span>
         </div>
         <button
           onClick={handleClear}
-          className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 font-medium"
+          className="inline-flex items-center gap-1 text-xs text-[#D9541E] hover:text-[#BF4413] font-semibold transition-colors"
         >
           <RotateCcw className="w-3 h-3" />
           <span>Clear</span>
@@ -88,22 +88,22 @@ export default function FilterPanel({
 
       {/* Content Type */}
       <div>
-        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2.5">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#737373] mb-2.5">
           Content Type
         </h4>
-        <div className="space-y-1.5 text-xs text-gray-700">
+        <div className="space-y-1.5 text-xs text-[#4A4A4A]">
           {contentTypes.map((t) => (
-            <label key={t.id} className="flex items-center justify-between cursor-pointer py-1">
+            <label key={t.id} className="flex items-center justify-between cursor-pointer py-1 hover:text-[#111111] transition-colors">
               <span className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={selectedTypes.includes(t.id)}
                   onChange={() => toggleType(t.id)}
-                  className="rounded border-gray-300 text-[#1D3A6E] focus:ring-[#1D3A6E]"
+                  className="rounded border-[#E5DFD3] text-[#D9541E] focus:ring-[#D9541E] accent-[#D9541E]"
                 />
                 <span>{t.label}</span>
               </span>
-              {t.count !== undefined && <span className="text-gray-400 font-medium">({t.count})</span>}
+              {t.count !== undefined && <span className="text-[#737373] font-medium">({t.count})</span>}
             </label>
           ))}
         </div>
@@ -111,22 +111,22 @@ export default function FilterPanel({
 
       {/* Category */}
       <div>
-        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2.5">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#737373] mb-2.5">
           Category
         </h4>
-        <div className="space-y-1.5 text-xs text-gray-700">
+        <div className="space-y-1.5 text-xs text-[#4A4A4A]">
           {categories.map((c) => (
-            <label key={c.id} className="flex items-center justify-between cursor-pointer py-1">
+            <label key={c.id} className="flex items-center justify-between cursor-pointer py-1 hover:text-[#111111] transition-colors">
               <span className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={selectedCategories.includes(c.id)}
                   onChange={() => toggleCategory(c.id)}
-                  className="rounded border-gray-300 text-[#1D3A6E] focus:ring-[#1D3A6E]"
+                  className="rounded border-[#E5DFD3] text-[#D9541E] focus:ring-[#D9541E] accent-[#D9541E]"
                 />
                 <span>{c.label}</span>
               </span>
-              {c.count !== undefined && <span className="text-gray-400 font-medium">({c.count})</span>}
+              {c.count !== undefined && <span className="text-[#737373] font-medium">({c.count})</span>}
             </label>
           ))}
         </div>
@@ -134,18 +134,18 @@ export default function FilterPanel({
 
       {/* Date Range */}
       <div>
-        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2.5">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#737373] mb-2.5">
           Date Range
         </h4>
-        <div className="space-y-1.5 text-xs text-gray-700">
+        <div className="space-y-1.5 text-xs text-[#4A4A4A]">
           {dateRanges.map((d) => (
-            <label key={d.id} className="flex items-center gap-2 cursor-pointer py-1">
+            <label key={d.id} className="flex items-center gap-2 cursor-pointer py-1 hover:text-[#111111] transition-colors">
               <input
                 type="radio"
                 name="dateRange"
                 checked={selectedDate === d.id}
                 onChange={() => setDate(d.id)}
-                className="text-[#1D3A6E] focus:ring-[#1D3A6E]"
+                className="text-[#D9541E] focus:ring-[#D9541E] accent-[#D9541E]"
               />
               <span>{d.label}</span>
             </label>

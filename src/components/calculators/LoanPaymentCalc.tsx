@@ -18,16 +18,16 @@ export default function LoanPaymentCalc() {
   });
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+    <div className="bg-white rounded-3xl border border-[#E5DFD3] shadow-xl overflow-hidden">
       <div className="p-8 md:p-10 grid lg:grid-cols-12 gap-10 items-start">
         {/* Inputs */}
         <div className="lg:col-span-7 space-y-6">
           <div>
-            <label className="block text-sm font-bold text-slate-900 mb-2">
+            <label className="block text-sm font-bold text-[#111111] mb-2">
               Loan Principal Amount
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                 $
               </span>
               <input
@@ -36,14 +36,14 @@ export default function LoanPaymentCalc() {
                 step="500"
                 value={loanAmount}
                 onChange={(e) => setLoanAmount(Number(e.target.value) || 0)}
-                className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                className="w-full pl-9 pr-4 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Annual Interest Rate (APR)
               </label>
               <div className="relative">
@@ -54,16 +54,16 @@ export default function LoanPaymentCalc() {
                   step="0.1"
                   value={annualInterestRate}
                   onChange={(e) => setAnnualInterestRate(Number(e.target.value) || 0)}
-                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-4 pr-10 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   %
                 </span>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-900 mb-2">
+              <label className="block text-sm font-bold text-[#111111] mb-2">
                 Loan Term
               </label>
               <div className="relative">
@@ -73,9 +73,9 @@ export default function LoanPaymentCalc() {
                   max="30"
                   value={loanTermYears}
                   onChange={(e) => setLoanTermYears(Number(e.target.value) || 1)}
-                  className="w-full pl-4 pr-16 py-3.5 rounded-xl border border-slate-200 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                  className="w-full pl-4 pr-16 py-3.5 rounded-xl border border-[#E5DFD3] text-base font-bold text-[#111111] bg-[#FAF7F2] focus:bg-white focus:outline-none focus:border-[#D9541E] focus:ring-2 focus:ring-[#D9541E]/20 transition-all"
                 />
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-base">
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] font-semibold text-base">
                   years
                 </span>
               </div>
@@ -84,7 +84,7 @@ export default function LoanPaymentCalc() {
 
           {/* Quick preset buttons */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#737373] block mb-2.5">
               Standard Loan Terms:
             </span>
             <div className="flex flex-wrap gap-2.5">
@@ -95,8 +95,8 @@ export default function LoanPaymentCalc() {
                   onClick={() => setLoanTermYears(yr)}
                   className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${
                     loanTermYears === yr
-                      ? "bg-slate-950 text-white border-slate-950 shadow-sm"
-                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+                      ? "bg-[#D9541E] text-white border-[#D9541E] shadow-sm"
+                      : "bg-[#FAF7F2] text-[#4A4A4A] border-[#E5DFD3] hover:border-[#D9541E]/40"
                   }`}
                 >
                   {yr} Years ({yr * 12} mos)
@@ -107,41 +107,41 @@ export default function LoanPaymentCalc() {
         </div>
 
         {/* Results */}
-        <div className="lg:col-span-5 bg-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-800 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-[#111111] text-[#E5DFD3] rounded-3xl p-8 sm:p-10 shadow-2xl border border-[#262626] flex flex-col justify-between space-y-6">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D9541E]">
               Estimated Monthly Payment
             </span>
             <div className="mt-3">
-              <p className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+              <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">
                 {formatCurrency(result.monthlyPayment)}
-                <span className="text-base font-normal text-slate-400"> /mo</span>
+                <span className="text-base font-normal text-[#888888]"> /mo</span>
               </p>
             </div>
 
-            <div className="mt-8 space-y-4 pt-6 border-t border-slate-800 text-sm">
-              <div className="flex justify-between items-center text-slate-300">
+            <div className="mt-8 space-y-4 pt-6 border-t border-[#262626] text-sm">
+              <div className="flex justify-between items-center text-[#CCCCCC]">
                 <span>Principal borrowed:</span>
                 <span className="font-bold text-white text-base">
                   {formatCurrency(loanAmount)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-slate-300">
+              <div className="flex justify-between items-center text-[#CCCCCC]">
                 <span>Total interest paid:</span>
-                <span className="font-bold text-rose-400 text-base">
+                <span className="font-bold text-[#D9541E] text-base">
                   {formatCurrency(result.totalInterest)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-slate-300 pt-3 border-t border-slate-800/80">
+              <div className="flex justify-between items-center text-[#CCCCCC] pt-3 border-t border-[#262626]">
                 <span>Total repayment:</span>
-                <span className="font-extrabold text-white text-lg">
+                <span className="font-black text-white text-lg">
                   {formatCurrency(result.totalPayment)}
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 p-4 rounded-2xl bg-blue-950/60 border border-blue-900 text-xs text-blue-200 flex items-start gap-2.5">
-              <Info className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+            <div className="mt-6 p-4 rounded-2xl bg-[#181818] border border-[#262626] text-xs text-[#E5DFD3] flex items-start gap-2.5">
+              <Info className="w-4 h-4 text-[#D9541E] flex-shrink-0 mt-0.5" />
               <span>
                 Making just 1 extra payment per year toward principal can save thousands in interest and shave years off your term.
               </span>
@@ -151,9 +151,9 @@ export default function LoanPaymentCalc() {
           <button
             type="button"
             onClick={() => setShowSchedule(!showSchedule)}
-            className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-bold text-white transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-bold text-white transition-colors"
           >
-            <Calendar className="w-3.5 h-3.5" />
+            <Calendar className="w-3.5 h-3.5 text-[#D9541E]" />
             <span>{showSchedule ? "Hide Amortization Schedule" : "View Amortization Schedule"}</span>
             <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSchedule ? "rotate-180" : ""}`} />
           </button>

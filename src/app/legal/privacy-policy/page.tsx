@@ -21,20 +21,20 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="container-main py-12">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-500 mb-8">
+      <nav className="text-sm text-[#737373] mb-8">
         <span>Home</span> &rsaquo; <span>Legal</span> &rsaquo;{" "}
-        <span className="text-gray-900 font-medium">Privacy Policy</span>
+        <span className="text-[#111111] font-bold">Privacy Policy</span>
       </nav>
 
       <div className="grid lg:grid-cols-[240px_1fr] gap-12">
         {/* ToC Sidebar */}
         <aside className="hidden lg:block">
-          <div className="sticky top-8">
-            <p className="text-sm font-semibold text-gray-700 mb-4">On this page</p>
-            <ul className="space-y-2">
+          <div className="sticky top-8 bg-white border border-[#E5DFD3] rounded-3xl p-6 shadow-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#737373] mb-4">On this page</p>
+            <ul className="space-y-2.5">
               {sections.map((s) => (
                 <li key={s.id}>
-                  <a href={`#${s.id}`} className="text-sm text-gray-500 hover:text-blue-600 transition-colors">
+                  <a href={`#${s.id}`} className="text-xs text-[#4A4A4A] hover:text-[#D9541E] font-medium transition-colors block py-0.5">
                     {s.title}
                   </a>
                 </li>
@@ -46,25 +46,27 @@ export default function PrivacyPolicyPage() {
         {/* Content */}
         <main className="max-w-3xl">
           <div className="mb-8">
-            <p className="badge bg-blue-50 text-blue-700 mb-3">Legal</p>
-            <h1 className="mb-2">Privacy Policy</h1>
-            <p className="text-xl text-gray-500">Your privacy matters to us.</p>
-            <p className="text-gray-500 mt-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#D9541E]/10 text-[#D9541E] border border-[#D9541E]/20 mb-3">
+              Legal &amp; Privacy
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-[#111111] tracking-tight mb-2">Privacy Policy</h1>
+            <p className="text-xl text-[#737373]">Your privacy matters to us.</p>
+            <p className="text-[#4A4A4A] mt-3 leading-relaxed">
               This Privacy Policy explains how TheFinScoop collects, uses, and protects
               your personal information when you visit our website.
             </p>
           </div>
 
-          {/* Green callout */}
-          <div className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-xl p-4 mb-10">
-            <span className="text-green-600 text-lg">✓</span>
-            <p className="text-sm text-green-800">
+          {/* Privacy Callout */}
+          <div className="flex items-start gap-3 bg-[#FAF7F2] border border-[#E5DFD3] rounded-2xl p-6 mb-10 shadow-sm">
+            <span className="text-[#D9541E] text-lg font-bold">✓</span>
+            <p className="text-sm text-[#111111] font-medium leading-relaxed">
               We do not sell, rent or share your personal information with third parties
               for their marketing purposes.
             </p>
           </div>
 
-          <div className="prose prose-gray max-w-none space-y-10">
+          <div className="prose prose-gray max-w-none space-y-10 text-[#4A4A4A] leading-relaxed">
             <section id="information-we-collect">
               <h2>1. Information we collect</h2>
               <p>We may collect personal information you provide directly to us, such as:</p>
